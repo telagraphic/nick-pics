@@ -1,0 +1,46 @@
+
+
+// setup css scroll snap for posts
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-bottom: 2rem;
+    font-family: 'Open Sans', sans-serif;
+
+    &__title {
+        margin: 0;        
+        font-weight: 600;
+    }
+
+    &__time {
+        margin: 0;
+        font-weight: 400;
+    }
+
+    &__media {
+        width: 100%;
+        height: auto;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        color: #000000;
+    }
+
+    &__tag a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+}

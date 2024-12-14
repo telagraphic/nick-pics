@@ -1,0 +1,29 @@
+@import './_normalize.scss';
+@import './_navigation.scss';
+@import './_post.scss';
+
+html {
+    background-color: #f1f5f9;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main {
+    padding-bottom: 3rem;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+}
