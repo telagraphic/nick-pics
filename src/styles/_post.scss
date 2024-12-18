@@ -5,6 +5,21 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    width: 100%;
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
 }
 
 
@@ -12,7 +27,12 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-bottom: 2rem;
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;  
+    flex-shrink: 1;
+    // padding-bottom: 2rem;
     font-family: 'Open Sans', sans-serif;
 
     &__title {

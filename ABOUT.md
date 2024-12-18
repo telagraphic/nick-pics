@@ -51,3 +51,19 @@ Use it to play the video when it is in view.
 
 
 Use page navigations to animate between pages.
+
+
+
+## Links
+
+https://www.halfhalftravel.com/blogging-advice/host-images-at-scale.html
+https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-ship-less-javascript
+
+
+
+## TODO
+
+
+
+
+- [ ] Add basic scroll snap

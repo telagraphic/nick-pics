@@ -1,6 +1,17 @@
-@import './_normalize.scss';
-@import './_navigation.scss';
-@import './_post.scss';
+@forward './_normalize.scss';
+@forward './_navigation.scss';
+@forward './_post.scss';
+@forward './_test.scss';
+
+
+html, 
+body,
+main {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; // prevent double scrollbars
+}
 
 html {
     background-color: #f1f5f9;
@@ -18,6 +29,8 @@ body {
     padding: 1rem;
     line-height: 1.5;
 }
+
+
 
 * {
     box-sizing: border-box;

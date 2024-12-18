@@ -6,13 +6,13 @@ const allPosts = Object.values(
 );
 
 const pageTitle = "Nick Pics";
-const classNames = "posts";
 ---
 
-<BaseLayout pageTitle={pageTitle} classNames={classNames}>
-		{
-			allPosts.map((post: any) => (
-					<Post {...post.frontmatter} />
-			))
-		}
+<BaseLayout pageTitle={pageTitle}>
+
+<div class="scroll-container">
+    <div class="scroll-item">Section 1</div>
+    <div class="scroll-item">Section 2</div>
+    <div class="scroll-item">Section 3</div>
+  </div>
 </BaseLayout>
