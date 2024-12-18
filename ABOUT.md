@@ -58,7 +58,7 @@ Use page navigations to animate between pages.
 
 https://www.halfhalftravel.com/blogging-advice/host-images-at-scale.html
 https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-ship-less-javascript
-
+https://css-tricks.com/practical-css-scroll-snapping/
 
 
 ## TODO
@@ -66,4 +66,9 @@ https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-
 
 
 
-- [ ] Add basic scroll snap
+- [x] Add basic scroll snap
+- [x] Added js up/down arrow navigation to posts
+- [ ] Add a debounce/throttle function for scroll snapping
+- [ ] Dynamically load posts from markdown files
+- [ ] How to create video post?
+- [ ] Responsive images setup for hosted media

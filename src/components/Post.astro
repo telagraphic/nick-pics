@@ -18,7 +18,7 @@ const { url, title, pubDate, tags, images } = Astro.props;
 
     <ul class="post__tags">
         {
-            tags.map((tag) => (
+            tags.map((tag: string) => (
                 <li class="post__tag">
                     <a href={`/tags/${tag}`}>#{tag}</a>
                 </li>
@@ -26,3 +26,42 @@ const { url, title, pubDate, tags, images } = Astro.props;
         }
     </ul>
 </article>
+
+<script>
+const initKeyboardNavigation = () => {
+    const sections = [...document.querySelectorAll('.post')];
+    let currentIndex = 0;
+  
+    const scrollToSection = (index: number) => {
+      sections[index]?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    };
+  
+    const handleKeyNavigation = (event: KeyboardEvent) => {
+      if (!['ArrowUp', 'ArrowDown'].includes(event.key)) return;
+      
+      event.preventDefault();
+      
+      currentIndex = event.key === 'ArrowUp'
+        ? Math.max(0, currentIndex - 1)
+        : Math.min(sections.length - 1, currentIndex + 1);
+  
+      scrollToSection(currentIndex);
+    };
+  
+    const updateCurrentIndex = () => {
+      currentIndex = sections.findIndex(section => 
+        section.getBoundingClientRect().top >= 0
+      );
+      
+      if (currentIndex === -1) currentIndex = sections.length - 1;
+    };
+  
+    document.addEventListener('keydown', handleKeyNavigation);
+    document.addEventListener('scroll', updateCurrentIndex);
+  };
+  
+  document.addEventListener('DOMContentLoaded', initKeyboardNavigation);
+</script>
