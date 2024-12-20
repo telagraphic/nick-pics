@@ -1,0 +1,144 @@
+---
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+const { images } = Astro.props;
+---
+
+{Array.isArray(images) ? (
+    <div class="swiper post__slider">
+        <div class="swiper-wrapper">
+            {images.map((image, index) => (
+                <div 
+                    class="swiper-slide post__media-container" 
+                    data-image-path={image.path} 
+                    data-image-alt={image.alt}
+                    data-index={index}
+                >
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+            ))}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+) : (
+    <div 
+        class="post__media-container" 
+        data-image-path={images.path} 
+        data-image-alt={images.alt}
+    >
+        <!-- Single image will be inserted here by JavaScript -->
+    </div>
+)}
+
+
+<script>
+    import Swiper from "swiper";
+    import { Pagination, Keyboard, Mousewheel } from "swiper/modules";
+
+    const initImageObserver = () => {
+        const imageObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const container = entry.target;
+                        const imagePath = container.dataset.imagePath;
+                        const imageAlt = container.dataset.imageAlt;
+
+                        // Create and insert the image
+                        const img = document.createElement("img");
+                        img.src = imagePath;
+                        img.alt = imageAlt;
+                        img.className = "post__media";
+                        container.appendChild(img);
+
+                        // Stop observing this container
+                        observer.unobserve(container);
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "50px", // Start loading images when they're 50px away
+                threshold: 0.1,
+            },
+        );
+
+        // Observe all image containers
+        document
+            .querySelectorAll(".post__media-container")
+            .forEach((container) => {
+                imageObserver.observe(container);
+            });
+    };
+
+    // Existing keyboard navigation code
+    const initKeyboardNavigation = () => {
+        const sections = [...document.querySelectorAll(".post")];
+        let currentIndex = 0;
+
+        const scrollToSection = (index: number) => {
+            sections[index]?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        };
+
+        const handleKeyNavigation = (event: KeyboardEvent) => {
+            if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return;
+
+            event.preventDefault();
+
+            currentIndex =
+                event.key === "ArrowUp"
+                    ? Math.max(0, currentIndex - 1)
+                    : Math.min(sections.length - 1, currentIndex + 1);
+
+            scrollToSection(currentIndex);
+        };
+
+        const updateCurrentIndex = () => {
+            currentIndex = sections.findIndex(
+                (section) => section.getBoundingClientRect().top >= 0,
+            );
+
+            if (currentIndex === -1) currentIndex = sections.length - 1;
+        };
+
+        document.addEventListener("keydown", handleKeyNavigation);
+        document.addEventListener("scroll", updateCurrentIndex);
+    };
+
+    const initSlider = () => {
+        document.querySelectorAll(".post__slider").forEach((sliderEl) => {
+            new Swiper(sliderEl, {
+                modules: [Pagination, Keyboard, Mousewheel],
+                slidesPerView: 1,
+                spaceBetween: 30,
+                mousewheel: false,
+                simulateTouch: true,
+                touchRatio: 1,
+                loop: true,
+                lazy: true,
+                momentumRatio: 1,
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        });
+    };
+
+    // Initialize both keyboard navigation and image observer
+    const init = () => {
+        initKeyboardNavigation();
+        initImageObserver();
+        initSlider();
+    };
+
+    document.addEventListener("DOMContentLoaded", init);
+</script>

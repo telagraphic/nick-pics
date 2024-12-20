@@ -1,6 +1,7 @@
 ---
-import { Image } from "astro:assets";
-const { url, title, pubDate, tags, images } = Astro.props;
+import Picture from "./Picture.astro";
+import Video from "./Video.astro";
+const { url, title, pubDate, tags, images, videos } = Astro.props;
 ---
 
 <article class="post">
@@ -8,13 +9,8 @@ const { url, title, pubDate, tags, images } = Astro.props;
     <time class="post__time" datetime={pubDate.toString().slice(0, 10)}
         >{pubDate.toString().slice(0, 10)}</time
     >
-    <Image
-        class="post__media"
-        src={images.path}
-        alt={images.alt}
-        width="300"
-        height="300"
-    />
+    {images && <Picture images={images} />}
+    {videos && <Video videos={videos} />}
 
     <ul class="post__tags">
         {
@@ -27,41 +23,4 @@ const { url, title, pubDate, tags, images } = Astro.props;
     </ul>
 </article>
 
-<script>
-const initKeyboardNavigation = () => {
-    const sections = [...document.querySelectorAll('.post')];
-    let currentIndex = 0;
-  
-    const scrollToSection = (index: number) => {
-      sections[index]?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    };
-  
-    const handleKeyNavigation = (event: KeyboardEvent) => {
-      if (!['ArrowUp', 'ArrowDown'].includes(event.key)) return;
-      
-      event.preventDefault();
-      
-      currentIndex = event.key === 'ArrowUp'
-        ? Math.max(0, currentIndex - 1)
-        : Math.min(sections.length - 1, currentIndex + 1);
-  
-      scrollToSection(currentIndex);
-    };
-  
-    const updateCurrentIndex = () => {
-      currentIndex = sections.findIndex(section => 
-        section.getBoundingClientRect().top >= 0
-      );
-      
-      if (currentIndex === -1) currentIndex = sections.length - 1;
-    };
-  
-    document.addEventListener('keydown', handleKeyNavigation);
-    document.addEventListener('scroll', updateCurrentIndex);
-  };
-  
-  document.addEventListener('DOMContentLoaded', initKeyboardNavigation);
-</script>
+

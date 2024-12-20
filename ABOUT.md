@@ -69,6 +69,7 @@ https://css-tricks.com/practical-css-scroll-snapping/
 - [x] Add basic scroll snap
 - [x] Added js up/down arrow navigation to posts
 - [ ] Add a debounce/throttle function for scroll snapping
+- [ ] Increase speed of scroll on deskptop layout
 - [ ] Dynamically load posts from markdown files
 - [ ] How to create video post?
 - [ ] Responsive images setup for hosted media
