@@ -1,21 +1,69 @@
 ---
-import { initPlayer } from './VideoPlayer';
 const { videos } = Astro.props;
-const videoPath = `/videos/${videos.path}`;
-const videoThumbnail = `/videos/${videos.thumbnail}`;
 ---
 
 <div class="plyr-container">
-  <video class="plyr-video" playsinline controls data-plyr-provider="html5" data-poster={videoThumbnail}>
-    <source src={videoPath} type="video/mp4" />
+  <video class="plyr-video" playsinline controls data-plyr-provider="html5" data-poster={videos.thumbnail}>
+    <source src={videos.name} type="video/mp4" />
         <!-- Add fallback text for debugging -->
-        Your browser does not support the video tag. Path: {videoPath}
+        Your browser does not support the video tag. Path: {videos.path}
   </video>
 </div>
 
 <script>
-  import { initPlayer } from './VideoPlayer';
-  window.addEventListener('load', initPlayer);
+import Plyr from 'plyr';
+
+function initPlayer() {
+  const players = Array.from(document.querySelectorAll('.plyr-video')).map(p => {
+    const player = new Plyr(p, {
+      debug: true,
+      controls: [
+        'play-large',
+        'fullscreen'
+      ]
+    //   iconUrl: '/path/to/your/custom-icons.svg', // Custom icons
+    //   iconPrefix: 'custom-icon' // Prefix for your custom icons
+    });
+
+    // Create intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            player.play().catch(() => {
+              // Auto-play was prevented (common on mobile devices)
+              console.log('Auto-play was prevented');
+            });
+          } else {
+            // player.pause();
+            player.stop();
+          }
+        });
+      },
+      {
+        threshold: 0.5  // Trigger when 50% of the video is visible
+      }
+    );
+
+    // Start observing the player element
+    if (player.elements.container) {
+        observer.observe(player.elements.container);
+    }
+
+    player.on('ready', () => {
+      console.log('Player is ready');
+    });
+
+    player.on('error', (error) => {
+      console.error('Plyr error:', error);
+    });
+
+    return player;
+  });
+}
+
+// Initialize players when the DOM is ready
+document.addEventListener('DOMContentLoaded', initPlayer);
 </script>
 
 

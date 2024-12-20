@@ -5,22 +5,23 @@ const { url, title, pubDate, tags, images, videos } = Astro.props;
 ---
 
 <article class="post">
-    <h2 class="post__title">{title}</h2>
-    <time class="post__time" datetime={pubDate.toString().slice(0, 10)}
-        >{pubDate.toString().slice(0, 10)}</time
-    >
+    {title && <h2 class="post__title">{title}</h2>}
+    {pubDate && 
+            <time class="post__time" datetime={pubDate.toString().slice(0, 10)}>
+                {pubDate.toString().slice(0, 10)}
+            </time>
+    }
+
     {images && <Picture images={images} />}
     {videos && <Video videos={videos} />}
 
-    <ul class="post__tags">
-        {
-            tags.map((tag: string) => (
+    {tags && 
+        <ul class="post__tags">
+            {tags.map((tag: string) => (
                 <li class="post__tag">
-                    <a href={`/tags/${tag}`}>#{tag}</a>
-                </li>
-            ))
-        }
-    </ul>
+                        <a href={`/tags/${tag}`}>#{tag}</a>
+                    </li>
+                ))}
+            </ul>
+    }
 </article>
-
-
