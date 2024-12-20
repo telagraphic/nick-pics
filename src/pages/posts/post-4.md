@@ -1,10 +1,13 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Day in the Park'
-pubDate: 2024-12-02
-videos:
-    path: '/videos/fritz-libx264.mp4'
-    thumbnail: '/pics/fritz-libx264.jpg'
-    alt: 'Hello doggy'
+title: 'Day at the Park'
+pubDate: 2024-12-14
+images:
+    - path: '/pics/neptune.jpg'
+      alt: 'Neptune planet.'
+    - path: '/pics/neptune.jpg'
+      alt: 'Neptune planet.'
+    - path: '/pics/neptune.jpg'
+      alt: 'Neptune planet.'
 tags: ["pic"]
 ---

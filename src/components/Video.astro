@@ -1,5 +1,21 @@
 ---
+import { initPlayer } from './VideoPlayer';
 const { videos } = Astro.props;
+const videoPath = `/videos/${videos.path}`;
+const videoThumbnail = `/videos/${videos.thumbnail}`;
 ---
 
-<video src={videos.path} controls></video>
+<div class="plyr-container">
+  <video class="plyr-video" playsinline controls data-plyr-provider="html5" data-poster={videoThumbnail}>
+    <source src={videoPath} type="video/mp4" />
+        <!-- Add fallback text for debugging -->
+        Your browser does not support the video tag. Path: {videoPath}
+  </video>
+</div>
+
+<script>
+  import { initPlayer } from './VideoPlayer';
+  window.addEventListener('load', initPlayer);
+</script>
+
+
