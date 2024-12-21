@@ -1,14 +1,11 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Starry Night Two'
+title: 'Fritz Park'
 pubDate: 2024-12-04
-images:
-    path: '/pics/starry-night.jpg'
-    alt: 'Neptune planet.'
-
-tags: ["pic-story"]
+videos: {
+    name: '/videos/fritz-park-2.mp4',
+    thumbnail: '/videos/fritz-park-2.png',
+    alt: 'Hello doggy'
+}
+tags: ["video"]
 ---
-
-
-#   - path: '/pics/utopia.jpg'
-#     alt: 'Utopia picture.'

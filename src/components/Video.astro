@@ -2,15 +2,12 @@
 const { videos } = Astro.props;
 ---
 
-
-
 <div class="plyr-container">
-  <video 
-    class="plyr-video" 
-    playsinline 
-    muted
+  <video
+    class="plyr-video"
+    playsinline
     preload="auto"
-    data-plyr-provider="html5" 
+    data-plyr-provider="html5"
     data-poster={videos.thumbnail}
     style="width: 100%; height: 100%; object-fit: cover;"
   >
@@ -20,110 +17,88 @@ const { videos } = Astro.props;
 </div>
 
 <script>
-import Plyr from 'plyr';
+  import Plyr from "plyr";
 
-// Add this before initializing Plyr
-function checkVideoSupport() {
-  const video = document.createElement('video');
-  console.log('Video support info:');
-  console.log('canPlayType(video/mp4):', video.canPlayType('video/mp4'));
-  console.log('Plyr version:', Plyr.version);
-  console.log('User Agent:', navigator.userAgent);
-  console.log('iOS?:', /iPad|iPhone|iPod/.test(navigator.userAgent));
-}
+  // Add this before initializing Plyr
+  function checkVideoSupport() {
+    const video = document.createElement("video");
+    console.log("Video support info:");
+    console.log("canPlayType(video/mp4):", video.canPlayType("video/mp4"));
+    console.log("Plyr version:", Plyr.version);
+    console.log("User Agent:", navigator.userAgent);
+    console.log("iOS?:", /iPad|iPhone|iPod/.test(navigator.userAgent));
+  }
 
-// Call it before initPlayer
-checkVideoSupport();
+  // Call it before initPlayer
+  // checkVideoSupport();
 
-function initPlayer() {
-  const players = Array.from(document.querySelectorAll('.plyr-video')).map(p => {
-    const player = new Plyr(p, {
-      debug: true,
-      controls: [
-        'play-large',
-        'play',
-        'progress',
-        'current-time',
-        'mute',
-        'volume',
-        'fullscreen'
-      ],
-      loadSprite: true,
-      iconUrl: '/plyr.svg',
-      clickToPlay: true,
-      muted: true,
-      autopause: true,
-      playsinline: true,
-      resetOnEnd: true,
-      fullscreen: {
-        enabled: true,
-        fallback: true,
-        iosNative: true
-      }
-    });
-
-    // Create intersection observer with lower threshold
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Try to play with error handling
-            const playPromise = player.play();
-            
-            if (playPromise !== undefined) {
-              playPromise
-                .then(() => {
-                  console.log('Autoplay started');
-                })
-                .catch(error => {
-                  console.log('Autoplay prevented:', error);
-                  // Optionally show a play button or UI element
-                });
-            }
-          } else {
-            // player.pause();
-            player.stop();
-          }
-        });
-      },
-      {
-        threshold: 0.25  // Reduced threshold for earlier detection
-      }
+  // Check if device is iOS or mobile
+  const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
     );
 
-    // Start observing the player element
-    if (player.elements.container) {
-      observer.observe(player.elements.container);
-    }
+  function initPlayer() {
+    const players = Array.from(document.querySelectorAll('.plyr-video')).map(p => {
+      const player = new Plyr(p, {
+        debug: true,
+        controls: [
+          'play-large',
+          'play',
+          'progress',
+          'current-time',
+          'mute',
+          'volume',
+          'fullscreen'
+        ],
+        loadSprite: true,
+        iconUrl: '/plyr.svg',
+        clickToPlay: true,
+        muted: true,
+        autopause: true,
+        playsinline: true,
+        resetOnEnd: true,
+        fullscreen: {
+          enabled: true,
+          fallback: true,
+          iosNative: true
+        }
+      });
 
-    // Event listeners for debugging
-    player.on('ready', () => {
-      console.log('Player is ready');
+      // Create intersection observer with lower threshold
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const playPromise = player.play();
+              
+              if (playPromise !== undefined) {
+                playPromise
+                  .then(() => {
+                    console.log('Autoplay started');
+                  })
+                  .catch(error => {
+                    console.log('Autoplay prevented:', error);
+                  });
+              }
+            } else {
+              player.stop();  // This was working in the original version
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      if (player.elements.container) {
+        observer.observe(player.elements.container);
+      }
+
+      return player;
     });
+  }
 
-    player.on('play', () => {
-      console.log('Video started playing');
-    });
-
-    player.on('error', (error) => {
-      console.error('Plyr error:', error);
-    });
-
-    // Handle iOS specific setup
-    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isiOS) {
-      // Force playsinline
-      player.elements.original.setAttribute('playsinline', '');
-      player.elements.original.setAttribute('webkit-playsinline', '');
-    }
-
-    return player;
-  });
-}
-
-// Initialize when DOM is ready and when page is fully loaded
-document.addEventListener('DOMContentLoaded', initPlayer);
-window.addEventListener('load', initPlayer);
+  // Initialize when DOM is ready and when page is fully loaded
+  document.addEventListener("DOMContentLoaded", initPlayer);
+  window.addEventListener("load", initPlayer);
 </script>
-
-
