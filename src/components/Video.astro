@@ -6,12 +6,14 @@ const { videos } = Astro.props;
   <video
     class="plyr-video"
     playsinline
+    autoplay
     preload="auto"
     data-plyr-provider="html5"
-    data-poster={videos.thumbnail}
+    data-poster=`videos/${videos.thumbnail}.png` 
     style="width: 100%; height: 100%; object-fit: cover;"
   >
-    <source src={videos.name} type="video/mp4" />
+  <source src=`videos/${videos.name}.webm` type="video/webm" class="desktop-source" />
+  <source src=`videos/${videos.name}.mp4`  type="video/mp4" class="mobile-source" />
     Your browser does not support the video tag. Path: {videos.path}
   </video>
 </div>
@@ -19,43 +21,43 @@ const { videos } = Astro.props;
 <script>
   import Plyr from "plyr";
 
-  // Add this before initializing Plyr
-  function checkVideoSupport() {
-    const video = document.createElement("video");
-    console.log("Video support info:");
-    console.log("canPlayType(video/mp4):", video.canPlayType("video/mp4"));
-    console.log("Plyr version:", Plyr.version);
-    console.log("User Agent:", navigator.userAgent);
-    console.log("iOS?:", /iPad|iPhone|iPod/.test(navigator.userAgent));
-  }
-
-  // Call it before initPlayer
-  // checkVideoSupport();
-
   // Check if device is iOS or mobile
-  const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isiOS = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
   const isMobile =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent,
     );
 
   function initPlayer() {
+
+    const videos = document.querySelectorAll('.plyr-video');
+    videos.forEach(video => {
+      const desktopSource = video.querySelector('.desktop-source');
+      const mobileSource = video.querySelector('.mobile-source');
+      
+      if (isMobile) {
+        if (desktopSource) desktopSource.remove();
+      } else {
+        if (mobileSource) mobileSource.remove();
+      }
+    });
     const players = Array.from(document.querySelectorAll('.plyr-video')).map(p => {
       const player = new Plyr(p, {
-        debug: true,
+        debug: false,
         controls: [
           'play-large',
           'play',
-          'progress',
-          'current-time',
+          // 'progress',
+          // 'current-time',
           'mute',
-          'volume',
           'fullscreen'
         ],
         loadSprite: true,
         iconUrl: '/plyr.svg',
         clickToPlay: true,
-        muted: true,
+        muted: false,
+        // toggleInvert: false,
+        // disableContextMenu: false,
         autopause: true,
         playsinline: true,
         resetOnEnd: true,
@@ -87,10 +89,29 @@ const { videos } = Astro.props;
             }
           });
         },
-        { threshold: 0.25 }
+        { threshold: 1 }
       );
 
+      // Add touch event handling
       if (player.elements.container) {
+        let touchStartTime = 0;
+        
+        player.elements.container.addEventListener('touchstart', () => {
+          touchStartTime = Date.now();
+        });
+
+        player.elements.container.addEventListener('touchend', (e) => {
+          // Only handle quick taps (less than 200ms)
+          if (Date.now() - touchStartTime < 200) {
+            e.preventDefault();
+            if (player.playing) {
+              player.pause();
+            } else {
+              player.play();
+            }
+          }
+        });
+
         observer.observe(player.elements.container);
       }
 

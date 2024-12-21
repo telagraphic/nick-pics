@@ -64,12 +64,25 @@ https://css-tricks.com/practical-css-scroll-snapping/
 ## TODO
 
 
+### Posts
+
+Increase speed of scroll on desktop layout
+How to refresh next 10 posts on scroll
+How to pre-load videos
+Animate images into view when scrolling down.
+
+
+### Images
+
+Hosting images and videos
+
+
 
 
 - [x] Add basic scroll snap
 - [x] Added js up/down arrow navigation to posts
 - [ ] Add a debounce/throttle function for scroll snapping
 - [ ] Increase speed of scroll on deskptop layout
-- [ ] Dynamically load posts from markdown files
-- [ ] How to create video post?
+- [x] Dynamically load posts from markdown files
+- [x] How to create video post?
 - [ ] Responsive images setup for hosted media
