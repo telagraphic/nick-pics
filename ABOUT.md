@@ -59,7 +59,7 @@ Use page navigations to animate between pages.
 https://www.halfhalftravel.com/blogging-advice/host-images-at-scale.html
 https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-ship-less-javascript
 https://css-tricks.com/practical-css-scroll-snapping/
-
+https://dribbble.com/tags/instagram-ui
 
 ## TODO
 

@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Post from "../components/Post.astro";
 const allPosts = Object.values(
 	import.meta.glob("./posts/*.md", { eager: true }),
+).sort((a, b) => 
+    new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
 );
 
 const pageTitle = "Nick Pics";
@@ -16,4 +18,3 @@ const classNames = "posts";
 			))
 		}
 </BaseLayout>
-

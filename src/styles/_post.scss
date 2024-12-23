@@ -24,25 +24,49 @@
 
 .post {
     display: flex;
-    flex-direction: column;
-    align-items: start;
+    // flex-direction: column;
+    // align-items: start;
     scroll-snap-align: start;
     scroll-padding: 1rem;
     height: 100vh;
-    width: 100%;
-    min-height: 100vh;  
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     flex-shrink: 1;
     // padding-bottom: 2rem;
     font-family: 'Open Sans', sans-serif;
 
+    &__content {
+        display: flex;
+        flex-direction: column;
+        // works on desktop
+        justify-content: center;
+        height: calc(100vh - var(--header-height, 0px));
+        height: calc(100dvh - var(--header-height, 0px));
+        // padding: 2rem 1rem;
+
+        @media (min-width: 768px) {
+            // padding: 2rem 4rem;
+        }
+    }
+
     &__title {
         margin: 0;        
+        font-family: inherit;
         font-weight: 600;
+        font-weight: 700;
+        @media (max-width: 768px) {
+            padding: 0 1rem;
+        }
     }
 
     &__time {
         margin: 0;
         font-weight: 400;
+        font-weight: 400;
+        @media (max-width: 768px) {
+            padding: 0 1rem;
+        }
     }
 
     &__media-container {
@@ -56,12 +80,32 @@
         display: block;
     }
 
+//     &__media {
+//         width: 100%;
+//         height: 100%;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         object-fit: cover;
+//         display: block;
+// // make the image extend to full height of media_container 
+//     //     width: 100%;
+//     //     height: 100%;
+//     //     object-fit: cover;
+//     //     display: block;
+//     }
+
     &__tags {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
         padding: 0;
         color: #000000;
+        font-weight: 400;
+        font-style: italic;
+        @media (max-width: 768px) {
+            padding: 0 1rem;
+        }
     }
 
     &__tag a {

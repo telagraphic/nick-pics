@@ -12,11 +12,11 @@ main {
     margin: 0;
     padding: 0;
     overflow: hidden; // prevent double scrollbars
+    font-family: "Libre Baskerville", serif;
 }
 
 html {
     background-color: #f1f5f9;
-    font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -27,7 +27,7 @@ body {
     margin: 0 auto;
     width: 100%;
     max-width: 80ch;
-    padding: 1rem;
+    // padding: 1rem;
     line-height: 1.5;
 }
 
@@ -35,6 +35,7 @@ body {
 
 * {
     box-sizing: border-box;
+    font-family: "Libre Baskerville", serif;
 }
 
 h1 {

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: 'Utopia'
-pubDate: 2024-12-20
+pubDate: 2024-11-01
 images:
     path: '/pics/utopia.jpg'
     alt: 'Utopia art.'
