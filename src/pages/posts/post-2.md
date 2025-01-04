@@ -8,7 +8,3 @@ images:
 
 tags: ["pic-story"]
 ---
-
-
-#   - path: '/pics/utopia.jpg'
-#     alt: 'Utopia picture.'

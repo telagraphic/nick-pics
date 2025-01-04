@@ -72,6 +72,15 @@ How to pre-load videos
 Animate images into view when scrolling down.
 
 
+Layouts:
+
+mobile-full-height
+mobile-centered at 60vh
+
+
+
+
+
 ### Images
 
 Hosting images and videos
@@ -86,3 +95,46 @@ Hosting images and videos
 - [x] Dynamically load posts from markdown files
 - [x] How to create video post?
 - [ ] Responsive images setup for hosted media
+- [ ] Fix slider for images
+- [ ] Add post variants
+- [ ] Get images and videos
+
+
+
+
+## Publish Process
+
+### Pictures
+
+1. Create working directory
+2. Optimize and compress with ImageOptim
+3. Move to public/assets/YYYY-MM-DD
+4. Create markdown file in src/posts
+
+
+
+**format-image.sh**
+
+Convert optimized image to webp
+
+```
+sh format-image.sh publish/martini-rabbit-short.jpeg
+```
+
+
+### Videos
+
+1. Create working directory
+2. Run ffmpeg to create webm for andriod and mp4 for ios and desktop
+3. Move to public/assets/YYYY-MM-DD
+4. Create markdown file in src/posts
+
+
+**format-video.sh**
+
+Pass the video filepath to the script and use the filename for the input and output
+First argument is the video filepath, second is the timestamp for the thumbnail
+
+```
+sh format-video.sh publish/martini-rabbit-short.mov 2.2
+```

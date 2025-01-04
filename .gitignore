@@ -3,6 +3,11 @@ dist/
 # generated types
 .astro/
 
+# media
+public/pics
+public/videos
+public/publish
+
 # dependencies
 node_modules/
 

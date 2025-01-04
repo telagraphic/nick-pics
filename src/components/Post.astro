@@ -7,7 +7,7 @@ const { url, title, pubDate, tags, images, videos } = Astro.props;
 <article class="post">
     <div class="post__content">
         {title && <h2 class="post__title">{title}</h2>}
-        {
+        <!-- {
             pubDate && (
                 <time
                     class="post__time"
@@ -16,7 +16,7 @@ const { url, title, pubDate, tags, images, videos } = Astro.props;
                     {pubDate.toString().slice(0, 10)}
                 </time>
             )
-        }
+        } -->
 
         {images && <Picture images={images} />}
         {videos && <Video videos={videos} />}

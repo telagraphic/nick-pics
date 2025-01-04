@@ -12,7 +12,7 @@ main {
     margin: 0;
     padding: 0;
     overflow: hidden; // prevent double scrollbars
-    font-family: "Libre Baskerville", serif;
+    // font-family: "Libre Baskerville", serif;
 }
 
 html {
@@ -26,7 +26,13 @@ main {
 body {
     margin: 0 auto;
     width: 100%;
-    max-width: 80ch;
+    max-width: 100%;
+    @media (min-width: 768px) {
+        width: 55%;
+    }
+    // desktop width
+    // max-width: 89%;
+
     // padding: 1rem;
     line-height: 1.5;
 }
