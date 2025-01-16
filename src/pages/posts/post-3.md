@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Utopia'
+title: 'Prospect Park 2023'
 pubDate: 2024-12-20
 images:
-    path: '/pics/utopia.jpg'
-    alt: 'Utopia art.'
-tags: ["video"]
+    path: '/assets/couple-sunset.webp'
+    alt: 'Couple at sunset'
+tags: ["pic"]
 ---

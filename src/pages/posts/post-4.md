@@ -1,13 +1,9 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Neptunes'
+title: 'Fritz at Wolf Park'
 pubDate: 2024-12-17
 images:
-    - path: '/pics/neptune.jpg'
-      alt: 'Neptune planet.'
-    - path: '/pics/neptune.jpg'
-      alt: 'Neptune planet.'
-    - path: '/pics/neptune.jpg'
-      alt: 'Neptune planet.'
+    path: '/assets/fritz-park.png'
+    alt: 'Fritz at Wolf Park'
 tags: ["pic"]
 ---

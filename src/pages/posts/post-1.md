@@ -1,11 +1,9 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Day in the Park'
+title: 'Poetica Coffee'
 pubDate: 2024-12-22
-videos: {
-    name: 'dog-park',
-    thumbnail: 'dog-park',
-    alt: 'Hello doggy'
-}
-tags: ["video"]
+images:
+    path: '/assets/poetica-coffee.webp'
+    alt: 'Poetica Coffee'
+tags: ["pic"]
 ---

@@ -1,10 +1,9 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Starry Night'
+title: 'G Train at Fort Hamilton Stop'
 pubDate: 2024-12-21
 images:
-    path: '/pics/starry-night.jpg'
-    alt: 'Neptune planet.'
-
-tags: ["pic-story"]
+    path: '/assets/fort-hamilton-stop.webp'
+    alt: 'G Train at Fort Hamilton Stop'
+tags: ["pic"]
 ---

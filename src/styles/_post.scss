@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    // justify-content: center;
 
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
     width: 100%;
+
 
     font-family: "legitima", serif;
 
@@ -25,48 +27,27 @@
 
 }
 
-
 .post {
     display: flex;
-    // flex-direction: column;
-    // align-items: start;
     scroll-snap-align: start;
     scroll-padding: 1rem;
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
     min-height: 100dvh;
-
     flex-shrink: 1;
-    // padding-bottom: 2rem;
-    // font-family: 'Open Sans', sans-serif;
 
     &__content {
         display: flex;
         flex-direction: column;
-        // works on desktop
         justify-content: center;
-        height: calc(100vh - var(--header-height, 0px));
-        height: calc(100dvh - var(--header-height, 0px));
-        // padding: 2rem 1rem;
-
-        // desktop height
-        // max-height: 89%;
-        // desktop wide post
-        // height: 79%;
-        //    align-self: center;
-
-        @media (min-width: 768px) {
-            // padding: 2rem 4rem;
-        }
+        // height: calc(100vh - var(--header-height, 0px));
+        // height: calc(100dvh - var(--header-height, 0px));
     }
 
     &__title {
         margin: 0;
         font-family: inherit;
-        // font-weight: 600;
-        // font-weight: 700;
-        // font-family: "legitima", serif;
         font-weight: 500;
         font-style: normal;
         font-size: 2rem;
@@ -78,8 +59,6 @@
 
     &__time {
         margin: 0;
-        // font-weight: 400;
-        // font-family: "legitima", serif;
         font-weight: 500;
         font-style: italic;
 
@@ -96,28 +75,21 @@
     }
 
     &__media {
-        width: 100%;
-        height: 100%;
+        height: 66vh;
         object-fit: cover;
-        display: block;
-        position: relative;
-        z-index: 1;
-    }
+        max-width: 100%;
 
-    //     &__media {
-    //         width: 100%;
-    //         height: 100%;
-    //         position: absolute;
-    //         top: 0;
-    //         left: 0;
-    //         object-fit: cover;
-    //         display: block;
-    // // make the image extend to full height of media_container 
-    //     //     width: 100%;
-    //     //     height: 100%;
-    //     //     object-fit: cover;
-    //     //     display: block;
-    //     }
+        // width: 100%;
+        // height: 100%;
+        z-index: 1;
+        @media (min-width: 768px) {
+            height: 50vh;
+            object-fit: contain;
+        }
+
+        // display: block;
+        // position: relative;
+    }
 
     &__tags {
         display: flex;
@@ -125,7 +97,6 @@
         list-style: none;
         padding: 0;
         color: #000000;
-        // font-weight: 400;
         font-weight: 500;
         font-style: italic;
         font-size: 1.25rem;
@@ -138,54 +109,5 @@
     &__tag a {
         color: #000000;
         text-decoration: none;
-    }
-
-    &__slider {
-        width: 100%;
-        height: 100%;
-        
-        .swiper-wrapper {
-            height: 100%;
-        }
-        
-        .swiper-slide {
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-}
-
-// Reset any potential interfering styles
-.swiper {
-    width: 100%;
-    height: 100%;
-    
-    &-slide {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    &-pagination {
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10;
-        
-        &-bullet {
-            width: 8px;
-            height: 8px;
-            margin: 0 4px;
-            background-color: white;
-            opacity: 0.5;
-            
-            &-active {
-                opacity: 1;
-            }
-        }
     }
 }

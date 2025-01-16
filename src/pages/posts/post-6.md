@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Dystopia'
+title: 'Sparky'
 pubDate: 2024-12-07
 images:
-    path: '/pics/utopia.jpg'
-    alt: 'Utopia art.'
-tags: ["video"]
+    path: '/assets/dog-park.png'
+    alt: 'Sparky at Dog Park'
+tags: ["pic"]
 ---
