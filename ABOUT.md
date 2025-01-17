@@ -1,30 +1,46 @@
-## Overview
+# Requirements
 
 Photo blog that supports displaying a short title, date, tag and a media file.
 
-The media file could be an:
+1. The media file could be an:
 
 - pic
-- pic-story
+- pic-story (multiple images)
 - video
 
 ```
-type: pic|pic-story|video
+images:
+    path: '/assets/dog-park.png'
+    alt: 'Sparky at Dog Park'
+```
+
+```
+images:
+    - path: '/assets/dog-park.png'
+      alt: 'Sparky at Dog Park'
+    - path: '/assets/dog-park.png'
+      alt: 'Sparky at Dog Park'
+```
+
+```
+video:
+    path: '/assets/dog-park.mp4'
+    alt: 'Sparky at Dog Park'
 ```
 
 
-Tags explain what the media file is about.
+2.Tags explain what the media file is about.
 
 ```
-tags: ["tag1", "tag2", "tag3"]
+tags: ["food", "park", "fam"]
 ```
 
+3. Menu for home, tags, and favorites
 
-A gallery view should allow the user to scroll left/left and up and down.
+- Home for stream of all posts
+- Tags for all posts with that tag
+- Favorites for all posts that have been favorited
 
-Color mode button.
-
-Like button?
 
 
 ## Design
@@ -39,7 +55,7 @@ Use a grid for mobile layout column of 2.
 Single column with a scroll snap.
 
 
-## Technologies 
+### Technologies 
 
 Use the IntersectionObserver API to detect when the user is scrolling near the photo and load the next or previous photo.
 Use CSS Grid to display the photos in a grid.
@@ -64,12 +80,22 @@ https://dribbble.com/tags/instagram-ui
 ## TODO
 
 
-### Posts
+### DO
 
 Increase speed of scroll on desktop layout
 How to refresh next 10 posts on scroll
 How to pre-load videos
 Animate images into view when scrolling down.
+- [ ] Add a debounce/throttle function for scroll snapping
+- [ ] Increase speed of scroll on deskptop layout
+- [ ] Responsive images setup for hosted media
+- [ ] Fix slider for images
+- [ ] Add post variants
+- [ ] Get images and videos
+
+### Posts
+
+
 
 
 Layouts:
@@ -86,18 +112,15 @@ mobile-centered at 60vh
 Hosting images and videos
 
 
+### DONE
 
-
+- [x] Add scroll to long titles
+- [x] Add full page image class
 - [x] Add basic scroll snap
 - [x] Added js up/down arrow navigation to posts
-- [ ] Add a debounce/throttle function for scroll snapping
-- [ ] Increase speed of scroll on deskptop layout
 - [x] Dynamically load posts from markdown files
 - [x] How to create video post?
-- [ ] Responsive images setup for hosted media
-- [ ] Fix slider for images
-- [ ] Add post variants
-- [ ] Get images and videos
+
 
 
 
@@ -137,4 +160,12 @@ First argument is the video filepath, second is the timestamp for the thumbnail
 
 ```
 sh format-video.sh publish/martini-rabbit-short.mov 2.2
+```
+
+
+## Mobile testing
+
+
+```
+ngrok http 4321
 ```

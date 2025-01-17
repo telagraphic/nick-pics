@@ -1,23 +1,65 @@
 ---
 import Picture from "./Picture.astro";
 import Video from "./Video.astro";
-const { url, title, pubDate, tags, images, videos } = Astro.props;
+const { url, title, pubDate, tags, images, videos, format } = Astro.props;
 ---
 
-<article class="post">
+<article class={format === 'full' ? 'post post--full' : 'post'}>
     <div class="post__content">
-        {title && <h2 class="post__title">{title}</h2>}
-        {images && <Picture images={images} />}
-        {
-            tags && (
-                <ul class="post__tags">
-                    {tags.map((tag: string) => (
-                        <li class="post__tag">
-                            <a href={`/tags/${tag}`}>#{tag}</a>
-                        </li>
-                    ))}
-                </ul>
-            )
-        }
+        <div class="post__standard-view">
+            <div class="post__title">
+                {title && <h2 class="post__title-header">{title}</h2>}
+            </div>
+            {images && <Picture images={images} />}
+            {
+                tags && (
+                    <ul class="post__tags">
+                        {tags.map((tag: string) => (
+                            <li class="post__tag">
+                                <a href={`/tags/${tag}`}>#{tag}</a>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </div>
+
+        {format === 'full' && (
+            <div class="post__full-container">
+                {images && <Picture images={images} />}
+                <div class="post__overlay">
+                    {title && <h2 class="post__title-header">{title}</h2>}
+                    {
+                        tags && (
+                            <ul class="post__tags">
+                                {tags.map((tag: string) => (
+                                    <li class="post__tag">
+                                        <a href={`/tags/${tag}`}>#{tag}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )
+                    }
+                </div>
+            </div>
+        )}
     </div>
 </article>
+
+<style>
+    .post__standard-view {
+        display: block;
+    }
+    .post__full-container {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .post--full .post__standard-view {
+            display: none;
+        }
+        .post--full .post__full-container {
+            display: block;
+        }
+    }
+</style>

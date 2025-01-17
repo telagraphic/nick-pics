@@ -5,5 +5,6 @@ pubDate: 2024-12-17
 images:
     path: '/assets/fritz-park.png'
     alt: 'Fritz at Wolf Park'
+format: 'standard'
 tags: ["pic"]
 ---
