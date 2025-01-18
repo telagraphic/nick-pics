@@ -5,6 +5,8 @@ pubDate: 2024-12-21
 images:
     path: '/assets/fort-hamilton-stop.webp'
     alt: 'G Train at Fort Hamilton Stop'
-format: 'standard'
+settings:
+    format: 'standard'
+    color: 'black'
 tags: ["pic"]
 ---

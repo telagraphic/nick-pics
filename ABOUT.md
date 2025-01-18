@@ -45,17 +45,20 @@ tags: ["food", "park", "fam"]
 
 ## Design
 
-**Mobile layout:**
+### Posts
 
-Use a grid for mobile layout column of 2.
+Layouts:
 
-
-**Desktop layout:**
-
-Single column with a scroll snap.
+standard: 66% height on mobile and desktop
+fill: 100% height on mobile but 66% on desktop
 
 
-### Technologies 
+
+## Images
+
+https://medium.com/@truszko1/picture-tags-vs-img-tags-their-uses-and-misuses-4b4a7881a8e1
+
+## Technologies 
 
 Use the IntersectionObserver API to detect when the user is scrolling near the photo and load the next or previous photo.
 Use CSS Grid to display the photos in a grid.
@@ -82,6 +85,10 @@ https://dribbble.com/tags/instagram-ui
 
 ### DO
 
+
+- [ ] Animate text when scrolling into view?
+
+
 Increase speed of scroll on desktop layout
 How to refresh next 10 posts on scroll
 How to pre-load videos
@@ -93,35 +100,20 @@ Animate images into view when scrolling down.
 - [ ] Add post variants
 - [ ] Get images and videos
 
-### Posts
 
-
-
-
-Layouts:
-
-mobile-full-height
-mobile-centered at 60vh
-
-
-
-
-
-### Images
-
-Hosting images and videos
 
 
 ### DONE
 
+- [x] tested post standard and fill layouts for mobile and desktop
+- [x] added pub date to posts
+- [x] refactor markup and styles for simpler html for standard and fill layouts
 - [x] Add scroll to long titles
 - [x] Add full page image class
 - [x] Add basic scroll snap
 - [x] Added js up/down arrow navigation to posts
 - [x] Dynamically load posts from markdown files
 - [x] How to create video post?
-
-
 
 
 

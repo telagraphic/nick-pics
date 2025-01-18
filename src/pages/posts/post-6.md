@@ -5,6 +5,8 @@ pubDate: 2024-12-07
 images:
     path: '/assets/dog-park.png'
     alt: 'Sparky at Dog Park'
-format: 'standard'
+settings:
+    format: 'standard'
+    color: 'black'
 tags: ["pic"]
 ---
