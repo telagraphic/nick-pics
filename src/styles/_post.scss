@@ -65,19 +65,9 @@
         }
     }
 
-    // &--standard {
-    //     color: black;
-
-    //     .post__tags a {
-    //         color: black;
-    //     }
-
-    //     .post__date {
-    //         color: black;
-    //     }
-    // }
 
     &--fill {
+        // max-height: 100%;
         @media (max-width: 768px) {
             position: relative;
 
@@ -90,7 +80,7 @@
 
             .post__media {
                 z-index: 1;
-                height: 100vh;
+                height: 100dvh;
                 padding: 0;
             }
 
