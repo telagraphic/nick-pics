@@ -1,0 +1,16 @@
+// Override default swiper height
+.swiper-slide {
+  height: 66vh !important;
+}
+
+.post--fill .swiper-slide {
+  height: 100vh !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ffffff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff;
+}

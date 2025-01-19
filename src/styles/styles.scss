@@ -1,6 +1,7 @@
 @forward "./_normalize.scss";
 @forward "./_navigation.scss";
 @forward "./_post.scss";
+@forward "./_swiper.scss";
 @forward "./_test.scss";
 
 * {
@@ -21,22 +22,12 @@ html {
   background-color: #ffffff;
 }
 
-main {
-  padding-bottom: 3rem;
-}
-
 body {
   margin: 0 auto;
   width: 100%;
-  // max-width: 100%;
   line-height: 1.5;
-
-  // @media (min-width: 768px) {
-  //     width: 55%;
-  // }
 }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+main {
+  padding-bottom: 3rem;
 }

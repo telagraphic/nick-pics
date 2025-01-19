@@ -67,7 +67,6 @@
   }
 
   &--fill {
-    // max-height: 100%;
     @media (max-width: 768px) {
       position: relative;
 
@@ -175,51 +174,5 @@
   &__date {
     margin: 0;
     font-weight: 500;
-  }
-
-  &--full {
-    @media (max-width: 768px) {
-      .post__content {
-        height: 100%;
-      }
-
-      .post__full-container {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        max-height: 100dvh;
-      }
-
-      .post__media {
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .post__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 1rem;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .post__title-header {
-          color: white;
-        }
-
-        .post__tags {
-          padding: 1rem;
-        }
-
-        .post__tag a {
-          color: white;
-        }
-      }
-    }
   }
 }

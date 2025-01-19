@@ -1,6 +1,6 @@
 function initKeyboardNavigation() {
     // Get all snap sections (assuming they have a class 'snap-section')
-    const sections = document.querySelectorAll('.snap-section');
+    const sections = document.querySelectorAll('.post');
     let currentIndex = 0;
 
     document.addEventListener('keydown', (e) => {

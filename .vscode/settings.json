@@ -1,11 +1,21 @@
 {
-    "editor.fontLigatures": false,
-    "[html]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "[astro]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontLigatures": false,
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "files.associations": {
+    "*.astro": "astro"
+  }
 }
