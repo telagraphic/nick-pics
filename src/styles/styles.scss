@@ -1,44 +1,42 @@
-@forward './_normalize.scss';
-@forward './_navigation.scss';
-@forward './_post.scss';
-@forward './_test.scss';
-
+@forward "./_normalize.scss";
+@forward "./_navigation.scss";
+@forward "./_post.scss";
+@forward "./_test.scss";
 
 * {
-    box-sizing: border-box;   
+  box-sizing: border-box;
 }
 
-html, 
+html,
 body,
 main {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; // prevent double scrollbars
-    font-family: "Libre Baskerville", serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; // prevent double scrollbars
+  font-family: "Libre Baskerville", serif;
 }
 
 html {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 main {
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    // max-width: 100%;
-    line-height: 1.5;
+  margin: 0 auto;
+  width: 100%;
+  // max-width: 100%;
+  line-height: 1.5;
 
-    // @media (min-width: 768px) {
-    //     width: 55%;
-    // }
+  // @media (min-width: 768px) {
+  //     width: 55%;
+  // }
 }
 
-
 h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+  margin: 1rem 0;
+  font-size: 2.5rem;
 }

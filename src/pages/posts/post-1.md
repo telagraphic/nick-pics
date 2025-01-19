@@ -8,6 +8,6 @@ images:
 settings:
     format: 'fill'
     color: 'black'
-
+fav: true
 tags: ["pic","coffee","nyc"]
 ---

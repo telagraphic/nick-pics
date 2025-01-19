@@ -9,11 +9,11 @@ const { videos } = Astro.props;
     autoplay
     preload="auto"
     data-plyr-provider="html5"
-    data-poster=`videos/${videos.thumbnail}.png` 
+    data-poster=`videos/${videos.thumbnail}.png`
     style="width: 100%; height: 100%; object-fit: cover;"
   >
-  <source src=`videos/${videos.name}.webm` type="video/webm" class="desktop-source" />
-  <source src=`videos/${videos.name}.mp4`  type="video/mp4" class="mobile-source" />
+    <source src=`videos/${videos.name}.webm` type="video/webm" class="desktop-source" />
+    <source src=`videos/${videos.name}.mp4` type="video/mp4" class="mobile-source" />
     Your browser does not support the video tag. Path: {videos.path}
   </video>
 </div>
@@ -23,37 +23,35 @@ const { videos } = Astro.props;
 
   // Check if device is iOS or mobile
   const isiOS = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    );
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
 
   function initPlayer() {
+    const videos = document.querySelectorAll(".plyr-video");
+    videos.forEach((video) => {
+      const desktopSource = video.querySelector(".desktop-source");
+      const mobileSource = video.querySelector(".mobile-source");
 
-    const videos = document.querySelectorAll('.plyr-video');
-    videos.forEach(video => {
-      const desktopSource = video.querySelector('.desktop-source');
-      const mobileSource = video.querySelector('.mobile-source');
-      
       if (isMobile) {
         if (desktopSource) desktopSource.remove();
       } else {
         if (mobileSource) mobileSource.remove();
       }
     });
-    const players = Array.from(document.querySelectorAll('.plyr-video')).map(p => {
+    const players = Array.from(document.querySelectorAll(".plyr-video")).map((p) => {
       const player = new Plyr(p, {
         debug: false,
         controls: [
-          'play-large',
-          'play',
+          "play-large",
+          "play",
           // 'progress',
           // 'current-time',
-          'mute',
-          'fullscreen'
+          "mute",
+          "fullscreen",
         ],
         loadSprite: true,
-        iconUrl: '/plyr.svg',
+        iconUrl: "/plyr.svg",
         clickToPlay: true,
         muted: false,
         // toggleInvert: false,
@@ -64,8 +62,8 @@ const { videos } = Astro.props;
         fullscreen: {
           enabled: true,
           fallback: true,
-          iosNative: true
-        }
+          iosNative: true,
+        },
       });
 
       // Create intersection observer with lower threshold
@@ -74,18 +72,18 @@ const { videos } = Astro.props;
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const playPromise = player.play();
-              
+
               if (playPromise !== undefined) {
                 playPromise
                   .then(() => {
-                    console.log('Autoplay started');
+                    console.log("Autoplay started");
                   })
-                  .catch(error => {
-                    console.log('Autoplay prevented:', error);
+                  .catch((error) => {
+                    console.log("Autoplay prevented:", error);
                   });
               }
             } else {
-              player.stop();  // This was working in the original version
+              player.stop(); // This was working in the original version
             }
           });
         },
@@ -95,12 +93,12 @@ const { videos } = Astro.props;
       // Add touch event handling
       if (player.elements.container) {
         let touchStartTime = 0;
-        
-        player.elements.container.addEventListener('touchstart', () => {
+
+        player.elements.container.addEventListener("touchstart", () => {
           touchStartTime = Date.now();
         });
 
-        player.elements.container.addEventListener('touchend', (e) => {
+        player.elements.container.addEventListener("touchend", (e) => {
           // Only handle quick taps (less than 200ms)
           if (Date.now() - touchStartTime < 200) {
             e.preventDefault();

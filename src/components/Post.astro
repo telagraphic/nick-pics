@@ -4,37 +4,46 @@ import Video from "./Video.astro";
 const { title, pubDate, tags, images, settings } = Astro.props;
 
 const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    }).replace(/\//g, '/');
+  return new Date(date)
+    .toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .replace(/\//g, "/");
+};
+
+const getPostClasses = (settings: { format?: string; color?: string }) => {
+  const format = settings.format || "standard";
+  const colorClass =
+    settings.color === "black" ? "post--dark" : settings.color === "white" ? "post--white" : "";
+  return `post post--${format} ${colorClass}`.trim();
 };
 
 const formattedDate = pubDate ? formatDate(pubDate) : null;
 ---
 
-<article class={`post post--${settings.format || 'standard'} ${settings.color === 'black' ? 'post--dark' : settings.color === 'white' ? 'post--white' : ''}`}>
+<article class={getPostClasses(settings)}>
+  {
+    title && (
+      <header class="post__title">
+        <h2 class="post__title-header">{title}</h2>
+      </header>
+    )
+  }
+  {images && <Picture images={images} />}
+  <footer class="post__footer">
     {
-        title && (
-            <header class="post__title">
-                <h2 class="post__title-header">{title}</h2>
-            </header>
-        )
-    }
-    {images && <Picture images={images} />}
-    <footer class="post__footer">
-    {
-        tags && (
-            <ul class="post__tags">
-                {tags.map((tag: string) => (
-                    <li class="post__tag">
-                        <a href={`/tags/${tag}`}>#{tag}</a>
-                    </li>
-                ))}
-            </ul>
-        )
+      tags && (
+        <ul class="post__tags">
+          {tags.map((tag: string) => (
+            <li class="post__tag">
+              <a href={`/tags/${tag}`}>#{tag}</a>
+            </li>
+          ))}
+        </ul>
+      )
     }
     {formattedDate && <time class="post__date">{formattedDate}</time>}
-    </footer>
+  </footer>
 </article>

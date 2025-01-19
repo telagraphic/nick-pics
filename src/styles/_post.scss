@@ -1,23 +1,110 @@
 // setup css scroll snap for posts
 .posts {
-    scroll-behavior: smooth;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    margin: 0 auto;
-    max-width: 100%;
-    padding-bottom: 100vh;
-    box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-bottom: 100vh;
+  box-sizing: border-box;
 
-    font-family: "legitima", serif;
+  font-family: "legitima", serif;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
+  @media (min-width: 768px) {
+    width: 55%;
+  }
+}
+
+.post {
+  display: grid;
+  scroll-snap-align: start;
+  scroll-padding: 1rem;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  width: 100%;
+  align-content: center;
+  grid-template-areas:
+    "title"
+    "media"
+    "tags";
+  grid-template-columns: 1fr;
+
+  &--dark {
+    color: black;
+  }
+
+  &--white {
+    @media (max-width: 768px) {
+      color: white;
+
+      .post__tags a {
+        color: white;
+      }
+
+      .post__date {
+        color: white;
+      }
+    }
+  }
+
+  &--fill {
+    // max-height: 100%;
+    @media (max-width: 768px) {
+      position: relative;
+
+      .post__title {
+        z-index: 10;
+        position: absolute;
+        top: 3rem;
+        width: 100%;
+      }
+
+      .post__media {
+        z-index: 1;
+        height: 100dvh;
+        padding: 0;
+      }
+
+      .post__footer {
+        z-index: 10;
+        position: absolute;
+        bottom: 3rem;
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
 
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
-        display: none;
+      display: none;
     }
 
     /* Hide scrollbar for IE, Edge and Firefox */
@@ -25,207 +112,114 @@
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+  }
+
+  &__title-header {
+    display: inline-block;
+    margin: 0;
+    font-family: inherit;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2rem;
+
+    @media (max-width: 768px) {
+      padding: 0 1rem;
+    }
+  }
+
+  &__media {
+    grid-area: media;
+    height: 66vh;
+    object-fit: cover;
+    max-width: 100%;
+    z-index: 1;
+    padding: 0.5rem 0;
+
     @media (min-width: 768px) {
-        width: 55%;
+      height: 66vh;
+      object-fit: cover;
+      width: 100%;
+      object-fit: cover;
     }
-}
+  }
 
-.post {
-    display: grid;
-    scroll-snap-align: start;
-    scroll-padding: 1rem;
-    height: 100vh;
-    height: 100dvh;
-    min-height: 100vh;
-    min-height: 100dvh;
-    max-height: 100dvh;
-    width: 100%;
-    align-content: center;
-    grid-template-areas:
-        "title"
-        "media"
-        "tags";
-    grid-template-columns: 1fr;
+  &__footer {
+    grid-area: tags;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    color: #000000;
 
-    &--dark {
-        color: black;
+    @media (max-width: 768px) {
+      padding: 0 1rem;
     }
+  }
 
-    &--white {
-        @media (max-width: 768px) {
-            color: white;
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    font-weight: 500;
+    margin: 0;
+  }
 
-            .post__tags a {
-                color: white;
-            }
+  &__tag a {
+    color: #000000;
+    text-decoration: none;
+    margin-right: 0.5rem;
+  }
 
-            .post__date {
-                color: white;
-            }
-        }
-    }
+  &__date {
+    margin: 0;
+    font-weight: 500;
+  }
 
+  &--full {
+    @media (max-width: 768px) {
+      .post__content {
+        height: 100%;
+      }
 
-    &--fill {
-        // max-height: 100%;
-        @media (max-width: 768px) {
-            position: relative;
-
-            .post__title {
-                z-index: 10;
-                position: absolute;
-                top: 3rem;
-                width: 100%;
-            }
-
-            .post__media {
-                z-index: 1;
-                height: 100dvh;
-                padding: 0;
-            }
-
-            .post__footer {
-                z-index: 10;
-                position: absolute;
-                bottom: 3rem;
-                width: 100%;
-                padding: 0 1rem;
-            }
-
-        }
-
-    }
-
-    &__title {
-        grid-area: title;
-        overflow-x: auto;
-        white-space: nowrap;
+      .post__full-container {
+        position: relative;
+        height: 100%;
         width: 100%;
-        margin: 0;
-        padding-bottom: 0;
+        max-height: 100dvh;
+      }
 
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Hide scrollbar for IE, Edge and Firefox */
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
-
-    &__title-header {
-        display: inline-block;
-        margin: 0;
-        font-family: inherit;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 2rem;
-
-        @media (max-width: 768px) {
-            padding: 0 1rem;
-        }
-    }
-
-    &__media {
-        grid-area: media;
-        height: 66vh;
+      .post__media {
+        height: 100%;
         object-fit: cover;
-        max-width: 100%;
-        z-index: 1;
-        padding: .5rem 0;
+      }
 
-
-        @media (min-width: 768px) {
-            height: 66vh;
-            object-fit: cover;
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-
-    &__footer {
-        grid-area: tags;
+      .post__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1rem;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+        color: white;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
         justify-content: space-between;
-        font-size: 1.25rem;
-        color: #000000;
 
-        @media (max-width: 768px) {
-            padding: 0 1rem;
+        .post__title-header {
+          color: white;
         }
-    }
 
-    &__tags {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        font-weight: 500;
-        font-style: italic;
-        margin: 0;
-    }
-
-    &__tag a {
-        color: #000000;
-        text-decoration: none;
-        margin-right: .5rem;
-    }
-
-    &__date {
-        margin: 0;
-        font-weight: 500;
-        font-style: italic;
-    }
-
-    &--full {
-        @media (max-width: 768px) {
-            .post__content {
-                height: 100%;
-            }
-
-            .post__full-container {
-                position: relative;
-                height: 100%;
-                width: 100%;
-                max-height: 100dvh;
-            }
-
-            .post__media {
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .post__overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                padding: 1rem;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-                color: white;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                .post__title-header {
-                    color: white;
-                }
-
-                .post__tags {
-                    padding: 1rem;
-                }
-
-                .post__tag a {
-                    color: white;
-                }
-            }
+        .post__tags {
+          padding: 1rem;
         }
+
+        .post__tag a {
+          color: white;
+        }
+      }
     }
+  }
 }

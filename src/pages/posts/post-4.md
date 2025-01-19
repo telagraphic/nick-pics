@@ -8,5 +8,6 @@ images:
 settings:
     format: 'standard'
     color: 'black'
+fav: true
 tags: ["pic"]
 ---
