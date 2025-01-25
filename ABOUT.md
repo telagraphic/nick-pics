@@ -87,19 +87,14 @@ https://dribbble.com/tags/instagram-ui
 
 
 - [ ] Animate text when scrolling into view?
-
-
-Increase speed of scroll on desktop layout
-How to refresh next 10 posts on scroll
-How to pre-load videos
-Animate images into view when scrolling down.
-- [ ] Add a debounce/throttle function for scroll snapping
-- [ ] Increase speed of scroll on deskptop layout
-- [ ] Responsive images setup for hosted media
-- [ ] Fix slider for images
-- [ ] Add post variants
-- [ ] Get images and videos
-
+  - setup gsap
+  - setup scroll trigger
+  - setup split text
+  - test on netlify and mobile
+- [ ] register domain name
+- [ ] image hosting!
+- [ ] lazy load images
+- [ ] setup video playing
 
 
 

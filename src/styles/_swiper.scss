@@ -4,7 +4,11 @@
 }
 
 .post--fill .swiper-slide {
-  height: 100vh !important;
+  height: 66vh !important;
+
+  @media (max-width: 768px) {
+    height: 100vh !important;
+  }
 }
 
 .swiper-pagination-bullet {
