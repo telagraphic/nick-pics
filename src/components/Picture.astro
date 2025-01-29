@@ -7,12 +7,12 @@ const { images } = Astro.props;
     <section class="post__media-swiper swiper">
       <div class="swiper-wrapper">
         {images.map((image) => (
-          <img class="post__media swiper-slide" src={image.path} alt={image.alt} />
+          <img class="post__media swiper-slide" src={image.path} alt={image.alt} loading="lazy" />
         ))}
       </div>
       <div class="swiper-pagination" />
     </section>
   ) : (
-    <img class="post__media" src={images.path} alt={images.alt} />
+    <img class="post__media" src={images.path} alt={images.alt} loading="lazy" />
   )
 }

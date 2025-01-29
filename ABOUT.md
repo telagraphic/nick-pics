@@ -86,20 +86,29 @@ https://dribbble.com/tags/instagram-ui
 ### DO
 
 
-- [ ] Animate text when scrolling into view?
-  - setup gsap
-  - setup scroll trigger
-  - setup split text
-  - test on netlify and mobile
-- [ ] register domain name
+- [ ] add a loader for page load
+- [ ] fade the post image in
+    - https://www.youtube.com/watch?v=ugCcEbirzUo&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=14
+- [ ] smoothify text animation
+    - https://www.youtube.com/watch?v=8oaRrizhwTQ&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=13
 - [ ] image hosting!
-- [ ] lazy load images
 - [ ] setup video playing
+
+
 
 
 
 ### DONE
 
+
+
+- [x] Animate text when scrolling into view?
+  - [x] setup gsap
+  - [x] setup scroll trigger, used intersect observer instead
+  - [x] setup split text
+  - [x] test on netlify and mobile
+- [x] register domain name
+- [x] lazy load images
 - [x] tested post standard and fill layouts for mobile and desktop
 - [x] added pub date to posts
 - [x] refactor markup and styles for simpler html for standard and fill layouts
