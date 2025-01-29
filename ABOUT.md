@@ -87,6 +87,7 @@ https://dribbble.com/tags/instagram-ui
 
 
 - [ ] add a loader for page load
+- [ ] add a resize step for each image, some are too large
 - [ ] fade the post image in
     - https://www.youtube.com/watch?v=ugCcEbirzUo&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=14
 - [ ] smoothify text animation
