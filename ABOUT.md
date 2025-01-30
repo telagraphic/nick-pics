@@ -75,16 +75,15 @@ Use page navigations to animate between pages.
 
 ## Links
 
-https://www.halfhalftravel.com/blogging-advice/host-images-at-scale.html
-https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-ship-less-javascript
-https://css-tricks.com/practical-css-scroll-snapping/
-https://dribbble.com/tags/instagram-ui
+- https://www.halfhalftravel.com/blogging-advice/host-images-at-scale.html
+-https://egghead.io/lessons/astro-refactor-a-react-astro-island-to-vanilla-js-to-ship-less-javascript
+- https://css-tricks.com/practical-css-scroll-snapping/
+- https://dribbble.com/tags/instagram-ui
 
 ## TODO
 
 
 ### DO
-
 
 - [ ] add a loader for page load
 - [ ] add a resize step for each image, some are too large
@@ -96,12 +95,7 @@ https://dribbble.com/tags/instagram-ui
 - [ ] setup video playing
 
 
-
-
-
 ### DONE
-
-
 
 - [x] Animate text when scrolling into view?
   - [x] setup gsap
@@ -126,11 +120,19 @@ https://dribbble.com/tags/instagram-ui
 
 ### Pictures
 
+Images should be sized at 1200px wide and 500KB max for best performance.
+
+
 1. Create working directory
 2. Optimize and compress with ImageOptim
 3. Move to public/assets/YYYY-MM-DD
 4. Create markdown file in src/posts
 
+
+
+**get-image-dimensions.sh**
+
+Returns the dimensions of all images in the current directory
 
 
 **format-image.sh**
