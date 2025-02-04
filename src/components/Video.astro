@@ -1,20 +1,23 @@
 ---
-const { videos } = Astro.props;
+const { video } = Astro.props;
+console.log(video);
+console.log(`Video path: ${video.path}/${video.name}.webm`);
+console.log(`Poster path: ${video.path}/${video.name}.png`);
 ---
 
-<div class="plyr-container">
+<div class="post__media-video plyr-container">
   <video
     class="plyr-video"
     playsinline
     autoplay
     preload="auto"
     data-plyr-provider="html5"
-    data-poster=`videos/${videos.thumbnail}.png`
+    data-poster={`${video.path}/${video.name}.png`}
     style="width: 100%; height: 100%; object-fit: cover;"
   >
-    <source src=`videos/${videos.name}.webm` type="video/webm" class="desktop-source" />
-    <source src=`videos/${videos.name}.mp4` type="video/mp4" class="mobile-source" />
-    Your browser does not support the video tag. Path: {videos.path}
+    <source src={`${video.path}/${video.name}.webm`} type="video/webm" class="desktop-source" />
+    <source src={`${video.path}/${video.name}.mp4`} type="video/mp4" class="mobile-source" />
+    Your browser does not support the video tag. Path: {video.path}
   </video>
 </div>
 

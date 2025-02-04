@@ -1,14 +1,13 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'G Train at Fort Hamilton Stop'
-pubDate: 2024-12-21
-images:
-    - path: '/assets/fort-hamilton-stop.webp'
-      alt: 'G Train at Fort Hamilton Stop'
-    - path: '/assets/fort-hamilton-stop.webp'
-      alt: 'G Train at Fort Hamilton Stop'
+title: 'Martini Rabbit'
+pubDate: 2025-01-25
+video:
+    path: '/assets/2018-07-19-martini-rabbit'
+    name: 'martini-rabbit'
+    alt: 'Martini Rabbit'
 settings:
     format: 'standard'
     color: 'black'
-tags: ["pic"]
+tags: ["music"]
 ---
