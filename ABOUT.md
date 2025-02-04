@@ -85,8 +85,9 @@ Use page navigations to animate between pages.
 
 ### DO
 
+- [ ] setup cloudflare tunnel
+    - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/
 - [ ] add a loader for page load
-- [ ] add a resize step for each image, some are too large
 - [ ] fade the post image in
     - https://www.youtube.com/watch?v=ugCcEbirzUo&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=14
 - [ ] smoothify text animation
@@ -97,6 +98,7 @@ Use page navigations to animate between pages.
 
 ### DONE
 
+- [x] add a resize step for each image, some are too large
 - [x] Animate text when scrolling into view?
   - [x] setup gsap
   - [x] setup scroll trigger, used intersect observer instead
