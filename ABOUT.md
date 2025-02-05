@@ -85,7 +85,7 @@ Use page navigations to animate between pages.
 
 ### DO
 
-- [ ] setup video playing
+
 - [ ] setup cloudflare tunnel
     - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/
 - [ ] add a loader for page load
@@ -98,6 +98,7 @@ Use page navigations to animate between pages.
 
 ### DONE
 
+- [x] setup video playing, styles and controls
 - [x] add a resize step for each image, some are too large
 - [x] Animate text when scrolling into view?
   - [x] setup gsap

@@ -20,7 +20,7 @@ function initPlayer() {
 
     const player = new Plyr(video, {
       debug: false,
-      controls: ["play-large", "play", "mute", "fullscreen"],
+      controls: ["play-large", "fullscreen"],
       loadSprite: true,
       iconUrl: "/plyr.svg",
       clickToPlay: true,
@@ -33,6 +33,9 @@ function initPlayer() {
         fallback: true,
         iosNative: true,
       },
+      // Add control display settings
+      controlsDisplayed: true,
+      hideControls: false
     });
 
     // Create intersection observer with adjusted threshold
