@@ -86,18 +86,17 @@ Use page navigations to animate between pages.
 ### DO
 
 
+
 - [ ] setup cloudflare tunnel
     - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/
 - [ ] add a loader for page load
-- [ ] fade the post image in
-    - https://www.youtube.com/watch?v=ugCcEbirzUo&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=14
 - [ ] smoothify text animation
     - https://www.youtube.com/watch?v=8oaRrizhwTQ&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=13
 - [ ] image hosting!
 
 
 ### DONE
-
+- [x] add fadein for media
 - [x] setup video playing, styles and controls
 - [x] add a resize step for each image, some are too large
 - [x] Animate text when scrolling into view?

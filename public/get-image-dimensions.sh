@@ -9,7 +9,7 @@ if ! command -v identify &> /dev/null; then
 fi
 
 # Iterate over each image file
-for file in *.{jpg,jpeg,png}; do
+for file in *.{jpg,jpeg,png,webp}; do
     # Check if files exist (to handle case when no matches are found)
     [ -e "$file" ] || continue
     
