@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-  function createSplitTextAnimation(element, animationConfig) {
+  function postAnimation(element, animationConfig) {
     let hasAnimated = false;
     
     // Set initial state
@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let titles = gsap.utils.toArray(".post__title-header");
   let footers = gsap.utils.toArray(".post__footer");
+  let medias = gsap.utils.toArray(".post__media, .post__media-swiper, .post__media-video");
   
   titles.forEach((title) => {
-    createSplitTextAnimation(title, {
+    postAnimation(title, {
       initial: {opacity: 0, yPercent: 100 },
       animation: {
         duration: 0.8,
@@ -48,8 +49,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  medias.forEach((media) => {
+    postAnimation(media, {
+      initial: {opacity: 0, autoAlpha: 0 },
+      animation: {
+        duration: 1,
+        opacity: 1,
+        autoAlpha: 1,
+        ease: "back.out(1.7)"
+      }
+    });
+  });
+
   footers.forEach((footer) => {
-    createSplitTextAnimation(footer, {
+    postAnimation(footer, {
       initial: { opacity: 0, yPercent: -100 },
       animation: {
         duration: 0.75,
