@@ -85,6 +85,7 @@ Use page navigations to animate between pages.
 
 ### DO
 
+- [ ] setup video playing
 - [ ] setup cloudflare tunnel
     - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/
 - [ ] add a loader for page load
@@ -93,7 +94,6 @@ Use page navigations to animate between pages.
 - [ ] smoothify text animation
     - https://www.youtube.com/watch?v=8oaRrizhwTQ&list=PLFP5vayyC2y7LuULEymd6QeubszoBclXm&index=13
 - [ ] image hosting!
-- [ ] setup video playing
 
 
 ### DONE
