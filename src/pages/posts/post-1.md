@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: 'Poetica Coffee'
-pubDate: 2024-12-22
+pubDate: 2025-01-22
 images:
     path: '/assets/poetica-coffee.webp'
     alt: 'Poetica Coffee'

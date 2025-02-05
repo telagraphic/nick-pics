@@ -1,7 +1,7 @@
 ---
 import Picture from "./Picture.astro";
 import Video from "./Video.astro";
-const { title, pubDate, tags, images, settings } = Astro.props;
+const { title, pubDate, tags, images, video, settings } = Astro.props;
 
 const formatDate = (date: string) => {
   return new Date(date)
@@ -32,6 +32,7 @@ const formattedDate = pubDate ? formatDate(pubDate) : null;
     )
   }
   {images && <Picture images={images} />}
+  {video && <Video video={video} />}
   <footer class="post__footer">
     {
       tags && (
