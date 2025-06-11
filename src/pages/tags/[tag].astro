@@ -21,5 +21,11 @@ const { posts } = Astro.props;
 
 <BaseLayout pageTitle={tag}>
   <p>#<b>{tag}</b> posts</p>
-  {posts.map((post: any) => <Post {...post.frontmatter} />)}
+  {
+    posts.map((post: any) => (
+      <article class="timeline-post">
+        <Post {...post.frontmatter} />
+      </article>
+    ))
+  }
 </BaseLayout>

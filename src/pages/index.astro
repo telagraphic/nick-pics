@@ -12,9 +12,9 @@ const classNames = "timeline";
 <BaseLayout pageTitle={pageTitle} classNames={classNames}>
   {
     allPosts.map((post: any) => (
-      <article class="timeline-post">
+      <section class="timeline-post">
         <Post {...post.frontmatter} />
-      </article>
+      </section>
     ))
   }
 </BaseLayout>
