@@ -23,7 +23,7 @@ const getPostClasses = (settings: { format?: string; color?: string }) => {
 const formattedDate = pubDate ? formatDate(pubDate) : null;
 ---
 
-<article class="post">
+<article class={getPostClasses(settings)}>
   {
     title && (
       <header class="post__title">

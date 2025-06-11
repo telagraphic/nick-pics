@@ -6,7 +6,7 @@ images:
     path: '/assets/fritz-park.webp'
     alt: 'Fritz at Wolf Park'
 settings:
-    format: 'standard'
+    format: 'full'
     color: 'black'
 fav: true
 tags: ["pic"]

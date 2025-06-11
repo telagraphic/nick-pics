@@ -1,42 +1,44 @@
-html {
-  box-sizing: border-box;
-}
+@layer reset {
+  html {
+    box-sizing: border-box;
+  }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 
-// html,
-// body,
-// main {
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
-//   overflow: hidden; // prevent double scrollbars
-//   font-family: "Libre Baskerville", serif;
-// }
+  // html,
+  // body,
+  // main {
+  //   height: 100%;
+  //   margin: 0;
+  //   padding: 0;
+  //   overflow: hidden; // prevent double scrollbars
+  //   font-family: "Libre Baskerville", serif;
+  // }
 
-html {
-  background-color: #ffffff;
-}
+  html {
+    background-color: #ffffff;
+  }
 
-// body {
-//   margin: 0 auto;
-//   width: 100%;
-//   line-height: 1.5;
-// }
+  // body {
+  //   margin: 0 auto;
+  //   width: 100%;
+  //   line-height: 1.5;
+  // }
 
-// main {
-//   padding-bottom: 3rem;
-// }
+  // main {
+  //   padding-bottom: 3rem;
+  // }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
 }

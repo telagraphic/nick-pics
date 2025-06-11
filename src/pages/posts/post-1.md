@@ -6,7 +6,7 @@ images:
     path: '/assets/poetica-coffee.webp'
     alt: 'Poetica Coffee'
 settings:
-    format: 'fill'
+    format: ''
     color: 'black'
 fav: true
 tags: ["pic","coffee","nyc"]
