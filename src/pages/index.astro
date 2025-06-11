@@ -6,9 +6,15 @@ const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true })
 );
 
 const pageTitle = "Nick Pics";
-const classNames = "posts";
+const classNames = "timeline";
 ---
 
 <BaseLayout pageTitle={pageTitle} classNames={classNames}>
-  {allPosts.map((post: any) => <Post {...post.frontmatter} />)}
+  {
+    allPosts.map((post: any) => (
+      <article class="timeline-post">
+        <Post {...post.frontmatter} />
+      </article>
+    ))
+  }
 </BaseLayout>

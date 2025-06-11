@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// html,
+// body,
+// main {
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   overflow: hidden; // prevent double scrollbars
+//   font-family: "Libre Baskerville", serif;
+// }
+
+html {
+  background-color: #ffffff;
+}
+
+// body {
+//   margin: 0 auto;
+//   width: 100%;
+//   line-height: 1.5;
+// }
+
+// main {
+//   padding-bottom: 3rem;
+// }
