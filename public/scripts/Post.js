@@ -1,32 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger, SplitText);
-  
-  const posts = document.querySelectorAll(".post");
+  gsap.registerPlugin(SplitText);
 
-  posts.forEach((post) => {
-    const title = post.querySelector(".post__title");
-    const tags = post.querySelector(".post__tags");
-    const date = post.querySelector(".post__date");
+  const timelineSection = document.querySelectorAll(".timeline-section");
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5
+  };
 
-     // animate the entire line up
-     // and delay the animation for the tags and date until the title is done
-     // use one timeline for each post
-     // complete the animation, no enter back in animations
-     // 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const post = entry.target;
+      const title = post.querySelector(".post__title");
+      const tags = post.querySelector(".post__tags");
+      const date = post.querySelector(".post__date");
 
+      // Set initial state
+      gsap.set([title, tags, date], { opacity: 0 });
 
-     const postTimeline = gsap.timeline({});
+      // Create timeline for this post
+      const postTimeline = gsap.timeline({
+        paused: true,
+        defaults: { ease: "power2.inOut" }
+      });
 
-     postTimeline.to(title, {
+      // Build the animation sequence
+      postTimeline
+        .to(title, {
+          opacity: 1,
+          duration: 0.5
+        })
+        .to(tags, {
+          opacity: 1,
+          duration: 0.5
+        }, "-=0.2")
+        .to(date, {
+          opacity: 1,
+          duration: 0.5
+        }, "-=0.2");
 
-     ScrollTrigger.create({
-        trigger: post,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        markers: true,
-        onEnter: () => {
-            
-        }
+      if (entry.isIntersecting) {
+        postTimeline.play();
+      } else {
+        postTimeline.reverse();
+      }
+    });
+  }, observerOptions);
+
+  // Observe each section
+  timelineSection.forEach(section => {
+    observer.observe(section);
   });
 });

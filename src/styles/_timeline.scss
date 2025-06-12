@@ -56,7 +56,7 @@
       grid-area: title;
       white-space: nowrap;
       overflow: hidden;
-      line-height: 1;
+      line-height: 1.3;
     }
 
     &__title-header {
@@ -97,7 +97,7 @@
       font-weight: 500;
       margin-inline-start: var(--text-margin);
       overflow: hidden;
-      line-height: 1;
+      line-height: 1.3;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-start: 0;
