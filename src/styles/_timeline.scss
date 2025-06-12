@@ -3,35 +3,32 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    height: 100dvh;
-    width: 100dvw;
-    overflow-y: scroll;
+    min-height: 100dvh;
+    min-width: 100dvw;
+    overflow: hidden;
     container-type: inline-size;
     container-name: timeline-post;
-    // -ms-overflow-style: none;
-    // scrollbar-width: none;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
 
-    &::-webkit-scrollbar {
-      // display: none;
-    }
+  .timeline-section {
+    min-height: 100dvh;
+    min-width: 100dvw;
+    scroll-snap-align: start;
 
-    &-section {
-      min-height: 100dvh;
-      min-width: 100dvw;
-      scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 2fr 2fr 0.5fr;
 
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 0.5fr 2fr 2fr 0.5fr;
-
-      @container timeline-post (min-width: 768px) {
-        grid-template-columns: 1fr 3fr 1fr;
-      }
+    @container timeline-post (min-width: 768px) {
+      grid-template-columns: 1fr 3fr 1fr;
     }
   }
 
   .post {
     --text-margin: 2vw;
+    --font-weight: 500;
     width: 100%;
     height: 100%;
     display: grid;
@@ -61,7 +58,7 @@
     &__title-header {
       font-size: clamp(1.5rem, 0.5vw + 1.5rem, 3.5rem);
       margin-inline-start: var(--text-margin);
-      font-weight: 500;
+      font-weight: var(--font-weight);
       font-style: normal;
 
       @container timeline-post (min-width: 768px) {
@@ -106,7 +103,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      font-weight: 500;
+      font-weight: var(--font-weight);
 
       a {
         text-decoration: none;
@@ -122,7 +119,7 @@
 
     &__date {
       margin-inline-end: var(--text-margin);
-      font-weight: 500;
+      font-weight: var(--font-weight);
 
       @container timeline-post (min-width: 768px) {
         margin-inline-end: 0;
@@ -130,6 +127,9 @@
     }
 
     &:is(.post--full) {
+      --text-block-padding: 5dvw;
+      --text-inline-padding: 3dvw;
+
       @container timeline-post (max-width: 500px) {
         grid-row: 1 / 5;
         grid-template-rows: min-content 1fr min-content;
@@ -139,8 +139,8 @@
           grid-row: 1 / 2;
           z-index: 200;
           align-self: start;
-          padding-block-start: 5dvh;
-          padding-inline-start: 3dvw;
+          padding-block-start: var(--text-block-padding);
+          padding-inline-start: var(--text-inline-padding);
         }
 
         .post__media {
@@ -158,8 +158,8 @@
           z-index: 200;
           grid-row: 3 / 4;
           align-self: end;
-          padding-block-end: 5dvh;
-          padding-inline-start: 3dvw;
+          padding-block-end: var(--text-block-padding);
+          padding-inline-start: var(--text-inline-padding);
         }
       }
 
