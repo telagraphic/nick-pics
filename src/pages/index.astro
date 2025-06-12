@@ -10,36 +10,40 @@ const classNames = "timeline";
 ---
 
 <BaseLayout pageTitle={pageTitle} classNames={classNames}>
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      {
-        allPosts.map((post: any) => (
-          <section class="timeline-section">
-            <Post {...post.frontmatter} />
-          </section>
-        ))
-      }
-    </div>
-  </div>
+  {
+    allPosts.map((post: any) => (
+      <section class="timeline-section">
+        <Post {...post.frontmatter} />
+      </section>
+    ))
+  }
 </BaseLayout>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
-
-    function isMobileViewport() {
-      return window.innerWidth < 768 || "ontouchstart" in window;
-    }
-
-    function initScrollSmoother() {
-      ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1.5,
-        effects: true,
-      });
-    }
-
-    initScrollSmoother();
+    // gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+    // const posts = document.querySelectorAll(".timeline-section");
+    // Create ScrollSmoother
+    // const smoother = ScrollSmoother.create({
+    //   wrapper: "#smooth-wrapper",
+    //   content: "#smooth-content",
+    //   smooth: 1,
+    //   effects: true,
+    //   smoothTouch: 0.1,
+    // });
+    // Create ScrollTrigger for each section
+    // posts.forEach((post, index) => {
+    //   ScrollTrigger.create({
+    //     trigger: `.timeline-section:nth-child(${index + 1})`,
+    //     start: "top center",
+    //     end: "bottom center",
+    //     snap: {
+    //       snapTo: 1 / (posts.length - 1),
+    //       duration: { min: 0.2, max: 0.3 },
+    //       delay: 0.1,
+    //       ease: "power2.inOut"
+    //     }
+    //   });
+    // });
   });
 </script>
