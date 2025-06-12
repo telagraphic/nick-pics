@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger, SplitText);
   
   const posts = document.querySelectorAll(".post");
-  console.log(posts);
 
   posts.forEach((post) => {
     const title = post.querySelector(".post__title");
@@ -15,5 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
      // complete the animation, no enter back in animations
      // 
 
+
+     const postTimeline = gsap.timeline({});
+
+     postTimeline.to(title, {
+
+     ScrollTrigger.create({
+        trigger: post,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        markers: true,
+        onEnter: () => {
+            
+        }
   });
 });
