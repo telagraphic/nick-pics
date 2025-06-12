@@ -1,0 +1,9 @@
+// Remove scroll-snap from main since we're using GSAP
+main {
+  scroll-snap-type: y mandatory;
+}
+
+// Base styles for smooth scrolling
+html.has-scroll-smooth {
+  overflow: hidden;
+}

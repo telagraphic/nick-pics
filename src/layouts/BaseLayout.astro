@@ -8,9 +8,13 @@ const { pageTitle, classNames } = Astro.props;
 <html lang="en">
   <Head pageTitle={pageTitle} />
   <body>
-    <main class={classNames}>
-      <slot />
-    </main>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main id="smooth-content" class={classNames}>
+          <slot />
+        </main>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script is:inline src="/scripts/gsap.min.js"></script>
     <script is:inline src="/scripts/SplitText.min.js"></script>
