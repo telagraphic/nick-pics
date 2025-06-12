@@ -3,14 +3,23 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
+    overflow-y: scroll;
     container-type: inline-size;
     container-name: timeline-post;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
-    &-post {
-      min-height: 100vh;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-section {
+      min-height: 100dvh;
       min-width: 100vw;
+      max-height: 100dvh;
+      max-width: 100vw;
 
       display: grid;
       grid-template-columns: 1fr;
@@ -46,11 +55,14 @@
 
     &__title {
       grid-area: title;
+      white-space: nowrap;
     }
 
     &__title-header {
       font-size: clamp(1.5rem, 0.5vw + 1.5rem, 3.5rem);
       margin-inline-start: var(--text-margin);
+      font-weight: 500;
+      font-style: normal;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-start: 0;
@@ -113,16 +125,17 @@
     }
 
     &:is(.post--full) {
-      @container timeline-post (max-width: 768px) {
+      @container timeline-post (max-width: 500px) {
         grid-row: 1 / 5;
         grid-template-rows: min-content 1fr min-content;
-        min-height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
 
         .post__title {
           grid-row: 1 / 2;
           z-index: 200;
           align-self: start;
-          padding-block-start: 5vh;
+          padding-block-start: 5dvh;
           padding-inline-start: 3vw;
         }
 
@@ -141,7 +154,7 @@
           z-index: 200;
           grid-row: 3 / 4;
           align-self: end;
-          padding-block-end: 5vh;
+          padding-block-end: 5dvh;
           padding-inline-start: 3vw;
         }
       }
