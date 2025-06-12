@@ -1,7 +1,15 @@
-@forward "./_normalize.scss";
-@forward "./_reset.scss";
-@forward "./_navigation.scss";
-@forward "./_timeline.scss";
-@forward "./_post.scss";
-@forward "./_video.scss";
-@forward "./_swiper.scss";
+// @forward "./_normalize.scss";
+// @forward "./_reset.scss";
+// @forward "./_navigation.scss";
+// @forward "./_timeline.scss";
+// @forward "./_post.scss";
+// @forward "./_video.scss";
+// @forward "./_swiper.scss";
+
+@layer reset, base, layout, components, utilities;
+
+@import "./_normalize.scss" layer(reset.normalize);
+@import "./_reset.scss" layer(reset.reset);
+
+@import "./_navigation.scss" layer(components.navigation);
+@import "./_timeline.scss" layer(components.timeline);

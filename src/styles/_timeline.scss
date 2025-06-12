@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: start;
     height: 100dvh;
-    width: 100vw;
+    width: 100dvw;
     overflow-y: scroll;
     container-type: inline-size;
     container-name: timeline-post;
@@ -17,9 +17,7 @@
 
     &-section {
       min-height: 100dvh;
-      min-width: 100vw;
-      max-height: 100dvh;
-      max-width: 100vw;
+      min-width: 100dvw;
 
       display: grid;
       grid-template-columns: 1fr;
@@ -41,7 +39,7 @@
       "media"
       "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: max-content 70vh max-content;
+    grid-template-rows: max-content 1fr max-content;
 
     grid-column: 1 / 2;
     grid-row: 2 / 4;
@@ -51,6 +49,7 @@
     @container timeline-post (min-width: 768px) {
       grid-column: 2 / 3;
       grid-row: 2 / 4;
+      grid-template-rows: max-content 70vh max-content;
     }
 
     &__title {
@@ -73,13 +72,16 @@
       grid-area: media;
       height: 100%;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     &__media-image {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center center;
       padding-block: 0.5rem;
     }
 
@@ -103,6 +105,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      font-weight: 500;
 
       a {
         text-decoration: none;
@@ -118,6 +121,7 @@
 
     &__date {
       margin-inline-end: var(--text-margin);
+      font-weight: 500;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-end: 0;
@@ -128,8 +132,7 @@
       @container timeline-post (max-width: 500px) {
         grid-row: 1 / 5;
         grid-template-rows: min-content 1fr min-content;
-        height: 100dvh;
-        max-height: 100dvh;
+        min-height: 100dvh;
 
         .post__title {
           grid-row: 1 / 2;
