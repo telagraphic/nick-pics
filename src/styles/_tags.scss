@@ -42,6 +42,11 @@
     }
   }
 
+  &__link-text {
+    padding: 0;
+    margin-inline-start: -1rem;
+  }
+
   &__link-hashtag {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;

@@ -27,22 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
       // Build the animation sequence
       postTimeline
         .to(title, {
+          delay: 0.15,
           opacity: 1,
           duration: 0.5
         })
-        .to(tags, {
+        .to([tags, date], {
           opacity: 1,
           duration: 0.5
         }, "-=0.2")
-        .to(date, {
-          opacity: 1,
-          duration: 0.5
-        }, "-=0.2");
 
       if (entry.isIntersecting) {
         postTimeline.play();
-      } else {
-        postTimeline.reverse();
+        observer.unobserve(post);
       }
     });
   }, observerOptions);
