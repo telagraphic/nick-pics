@@ -1,13 +1,14 @@
 ---
 import "../styles/styles.scss";
 import Head from "../components/Head.astro";
-
+import Menu from "../components/Menu.astro";
 const { pageTitle, classNames } = Astro.props;
 ---
 
 <html lang="en">
   <Head pageTitle={pageTitle} />
   <body>
+    <Menu />
     <main class={classNames}>
       <slot />
     </main>
