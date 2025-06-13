@@ -1,0 +1,58 @@
+.tags {
+  container: tags / inline-size;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2.5vh;
+    justify-content: center;
+  }
+
+  &__item {
+    list-style: none;
+    font-style: italic;
+    font-size: clamp(5vh, 1rem + 2vw, 3.5rem);
+    width: 100%;
+  }
+
+  &__link {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    text-decoration-thickness: max(0.08em, 1px);
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @container tags (min-width: 500px) {
+      &:hover {
+        font-weight: 600;
+
+        & .tags__link-hashtag {
+          font-weight: 600;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__link-text {
+    padding: 0;
+    margin-inline-start: -1rem;
+  }
+
+  &__link-hashtag {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

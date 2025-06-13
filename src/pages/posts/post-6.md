@@ -8,5 +8,5 @@ images:
 settings:
     format: 'standard'
     color: 'black'
-tags: ["pic"]
+tags: ["pic", "park", "autumn"]
 ---
