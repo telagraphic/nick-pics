@@ -9,5 +9,5 @@ settings:
     format: 'full'
     color: 'black'
 fav: true
-tags: ["pic"]
+tags: ["pic", "nature", "dogs"]
 ---
