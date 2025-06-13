@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Post from "../components/Post.astro";
+import Menu from "../../public/scripts/Menu.js";
+
 const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true })).sort(
   (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
 );
@@ -21,3 +23,4 @@ const classNames = "timeline";
 
 <script type="module" src="../scripts/ScrollIntoView.js"></script>
 <script type="module" src="../scripts/Post.js"></script>
+<script type="module" src="../scripts/Menu.js"></script>
