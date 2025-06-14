@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const date = post.querySelector(".post__date");
 
       // Set initial state
-      gsap.set([title, tags, date], { opacity: 0 });
+      // gsap.set([title, tags, date], { opacity: 0 });
 
       // Create timeline for this post
       const postTimeline = gsap.timeline({

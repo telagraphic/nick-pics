@@ -1,4 +1,5 @@
 .tags {
+  padding-block: 3rem;
   container: tags / inline-size;
 
   &__list {
@@ -23,8 +24,8 @@
     text-decoration-thickness: max(0.08em, 1px);
     font-weight: 500;
     width: 100%;
-    text-align: center;
-    position: relative;
+    display: flex;
+    justify-content: center;
 
     &:hover {
       text-decoration: none;
@@ -44,15 +45,20 @@
 
   &__link-text {
     padding: 0;
-    margin-inline-start: -1rem;
   }
 
   &__link-hashtag {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    display: none;
 
-    &:hover {
-      font-weight: 600;
+    @container tags (min-width: 500px) {
+      display: inline-block;
+      margin-block-start: 0.1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        font-weight: 600;
+      }
     }
   }
 }

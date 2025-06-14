@@ -13,25 +13,8 @@
 
 @import "./_base.scss" layer(base.base);
 
+@import "./_contact.scss" layer(layout.contact);
+
 @import "./_menu.scss" layer(components.menu);
 @import "./_timeline.scss" layer(components.timeline);
 @import "./_tags.scss" layer(components.tags);
-
-// ScrollSmoother styles
-// html.has-scroll-smooth {
-//   overflow: hidden;
-// }
-
-// #smooth-wrapper {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-//   overflow: hidden;
-// }
-
-// #smooth-content {
-//   min-height: 100vh;
-//   width: 100%;
-// }

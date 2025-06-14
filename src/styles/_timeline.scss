@@ -57,10 +57,11 @@
       white-space: nowrap;
       overflow: hidden;
       line-height: 1.3;
+      opacity: 0;
     }
 
     &__title-header {
-      font-size: clamp(1.5rem, 0.5vw + 1.5rem, 3.5rem);
+      font-size: clamp(2rem, 0.5vw + 1.5rem, 3.5rem);
       margin-inline-start: var(--text-margin);
       font-weight: var(--font-weight);
       font-style: normal;
@@ -85,7 +86,7 @@
       width: 100%;
       object-fit: cover;
       object-position: center center;
-      padding-block: 0.5rem;
+      // padding-block: 0.5rem;
     }
 
     &__footer {
@@ -94,10 +95,9 @@
       flex-direction: row;
       justify-content: space-between;
       font-size: clamp(1rem, 0.5vw + 1rem, 1.5rem);
-      font-weight: 500;
       margin-inline-start: var(--text-margin);
-      overflow: hidden;
       line-height: 1.3;
+      margin-block-start: 0.5rem;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-start: 0;
@@ -111,6 +111,7 @@
       padding: 0;
       margin: 0;
       font-weight: var(--font-weight);
+      opacity: 0;
 
       a {
         text-decoration: none;
@@ -127,6 +128,7 @@
     &__date {
       margin-inline-end: var(--text-margin);
       font-weight: var(--font-weight);
+      opacity: 0;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-end: 0;

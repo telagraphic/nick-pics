@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Nick Pics";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="contact">
+    <!-- <h1 class="contact__title">contact</h1> -->
+    <ul class="contact__list">
+      <li class="contact__item">
+        <a class="contact__link" href="mailto:myemailforthis@hey.com">email</a>
+      </li>
+      <li class="contact__item">
+        <a class="contact__link" href="https://www.mywebsiteforthis.com">website</a>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
