@@ -1,0 +1,25 @@
+---
+const { images } = Astro.props;
+---
+
+<section class="carousel-container">
+  <div class="carousel" aria-label="horizontal carousel of images">
+    {
+      images.map((image: any) => (
+        <div class="carousel-slide">
+          <img src={image.path} alt={image.alt} loading="lazy" />
+          {image.title && image.description && (
+            <>
+              <h2>{image.title}</h2>
+              <h5>{image.description}</h5>
+            </>
+          )}
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- <nav class="carousel-nav">
+    <div>1/{images.length}</div>
+  </nav> -->
+</section>

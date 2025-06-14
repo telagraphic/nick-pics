@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Post from "../components/Post.astro";
+
+const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true })).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
+);
+
+const pageTitle = "Nick Pics";
+const classNames = "carousel-page";
+---
+
+<BaseLayout pageTitle={pageTitle} classNames={classNames}>
+  <section>
+    <div class="carousel" aria-label="horizontal carousel of images">
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1659733582156-d2a11801e59f?q=50&w=1600" />
+        <h2>We're No</h2>
+        <h5>Strangers to love</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1543362137-5df0547b039d?q=50&w=1600" />
+        <h2>You Know</h2>
+        <h5>The rules and so do I</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1631142260228-305ccb610dba?q=50&w=1600" />
+        <h2>Full commitment</h2>
+        <h5>Is what I'm thikning of</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1708022766976-49ca46c0f7de?q=50&w=1600" />
+        <h2>You Wouldn't</h2>
+        <h5>Get this from any other guy</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1631142260079-970258649676?q=50&w=1600" />
+        <h2>I Just Wanna</h2>
+        <h5>Tell you how I'm feeling</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1708022809820-2668e65877b9?q=50&w=1600" />
+        <h2>Gotta Make</h2>
+        <h5>You understand</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1708022796522-ff65b57439de?q=50&w=1600" />
+        <h2>Never Gonna</h2>
+        <h5>Give you up</h5>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1708022790103-a514cb89a034?q=50&w=1600" />
+        <h2>Never Gonna</h2>
+        <h5>Let you down</h5>
+      </div>
+    </div>
+
+    <nav class="carousel-nav">
+      <button class="prev" tabindex="0" aria-label="Previous Slide"></button>
+      <button class="next" tabindex="0" aria-label="Next Slide"></button>
+      <div>1/8</div>
+    </nav>
+  </section>
+</BaseLayout>
+
+<script></script>

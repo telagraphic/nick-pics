@@ -7,8 +7,10 @@ images:
       alt: 'Couple at sunset'
     - path: '/assets/couple-sunset.webp'
       alt: 'Couple at sunset'
+    - path: '/assets/poetica-coffee.webp'
+      alt: 'Poetica Coffee'
 settings:
-    format: 'fill'
+    format: 'standard'
     color: 'white'
 tags: ["pic"]
 ---

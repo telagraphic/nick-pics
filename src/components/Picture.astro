@@ -1,17 +1,11 @@
 ---
+import Carousel from "./Carousel.astro";
 const { images } = Astro.props;
 ---
 
 {
   Array.isArray(images) ? (
-    <section class="post__media-swiper swiper">
-      <div class="swiper-wrapper">
-        {images.map((image) => (
-          <img class="post__media swiper-slide" src={image.path} alt={image.alt} loading="lazy" />
-        ))}
-      </div>
-      <div class="swiper-pagination" />
-    </section>
+    <Carousel images={images} />
   ) : (
     <img class="post__media-image" src={images.path} alt={images.alt} loading="lazy" />
   )
