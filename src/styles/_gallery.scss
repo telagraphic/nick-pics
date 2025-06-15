@@ -1,0 +1,35 @@
+.gallery {
+  padding-block: 3rem;
+  container: gallery / inline-size;
+
+  &__grid {
+    display: grid;
+    padding: 10rem var(--page-padding);
+    margin: 0 auto;
+    grid-template-columns: repeat(3, minmax(33vw, 1fr));
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(9, minmax(100px, 1fr));
+    }
+  }
+
+  &__grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  &__grid-item {
+    position: relative;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__grid-item-image {
+    aspect-ratio: 128 / 160;
+    background-size: cover;
+    background-position: center;
+  }
+}
