@@ -21,28 +21,7 @@ const classNames = "timeline";
 </BaseLayout>
 
 <script>
-  const carousels = document.querySelectorAll(".carousel");
-  const carouselInstances = new Map();
-  console.log(carousels);
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (!carouselInstances.has(entry.target)) {
-            const instance = new window.Carousel(entry.target);
-            carouselInstances.set(entry.target, instance);
-          }
-        } else {
-          if (carouselInstances.has(entry.target)) {
-            carouselInstances.get(entry.target).destroy();
-            carouselInstances.delete(entry.target);
-          }
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  carousels.forEach((carousel) => observer.observe(carousel));
+  import { CarouselManager } from "../scripts/Carousel.js";
+  const manager = new CarouselManager();
+  manager.init();
 </script>

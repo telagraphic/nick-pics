@@ -1,7 +1,6 @@
 class Carousel {
   constructor(element) {
     this.carousel = element;
-    console.log(this.carousel);
     this.carouselWrapper = this.carousel.querySelector(".carousel__wrapper");
     this.slides = gsap.utils.toArray(this.carousel.querySelectorAll(".carousel__slide"));
     this.prev = this.carousel.querySelector(".prev");
@@ -17,10 +16,13 @@ class Carousel {
     this.init();
   }
 
+  /**
+   * Initializes the carousel
+   * Sets up the horizontal loop and event listeners
+   */
   init() {
-    console.log("init");
     gsap.set(this.carouselWrapper, { overflow: "visible", "scroll-snap-type": "none" });
-    gsap.set(this.slides, { opacity: (i) => (i === 0 ? 1 : .5) });
+    // gsap.set(this.slides, { opacity: (i) => (i === 0 ? 1 : 1) });
     
     // Create horizontalLoop first
     this.horzontalLoop = this.setupHorizontalLoop(this.slides, {
@@ -48,9 +50,11 @@ class Carousel {
     this.updateOnArrowKey();
   }
 
+  /**
+   * Destroys the carousel instance
+   * Cleans up GSAP animations and event listeners
+   */
   destroy() {
-    // Clean up GSAP animations
-    console.log("destroy");
     if (this.horzontalLoop) {
       this.horzontalLoop.kill();
     }
@@ -73,6 +77,10 @@ class Carousel {
     this.activeSlide = null;
   }
 
+  /**
+   * Updates the image position and z-index for each slide
+   * Creates parallax movement on the images
+   */
   slideImgUpdate(){
     this.slides.forEach( (slide, index) => {
       const rect = slide.getBoundingClientRect();
@@ -83,7 +91,7 @@ class Carousel {
       const isOutOfView = rect.x < -rect.width || rect.x > innerWidth;
       const isFirstSlide = index === 0;
       
-      // Manage z-index for first slide
+      // Manage z-index for first slide to prevent overlapping slides when wrapping back to first slide
       if (isFirstSlide) {
         slide.style.zIndex = !isOutOfView ? '1000' : '1';
       } else {
@@ -104,6 +112,10 @@ class Carousel {
     });
   }
   
+  /**
+   * Handles the arrow key press event
+   * Navigates to the next or previous slide
+   */
   handleKeydown = (e) => {
     if (e.key === "ArrowRight") {
       this.horzontalLoop.next({ duration: 1, ease: "expo" });
@@ -113,10 +125,19 @@ class Carousel {
     }
   }
 
+  /**
+   * Updates the carousel on arrow key press
+   * Adds event listener for arrow key presses
+   */
   updateOnArrowKey() {
     document.addEventListener("keydown", this.handleKeydown);
   }
 
+  /**
+   * Sets up the horizontal loop
+   * Creates the timeline for the carousel
+   * Uses https://gsap.com/docs/v3/HelperFunctions/helpers/seamlessLoop
+   */
   setupHorizontalLoop(items, config) {
     let timeline;
     items = gsap.utils.toArray(items);
@@ -363,6 +384,33 @@ class Carousel {
   }
 }
 
+export class CarouselManager {
+  constructor() {
+    this.instances = new Map();
+    this.observer = new IntersectionObserver(
+      this.handleIntersection.bind(this),
+      { threshold: 0.1 }
+    );
+  }
 
-export default Carousel;
-window.Carousel = Carousel;
+  handleIntersection(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!this.instances.has(entry.target)) {
+          const instance = new Carousel(entry.target);
+          this.instances.set(entry.target, instance);
+        }
+      } else {
+        if (this.instances.has(entry.target)) {
+          this.instances.get(entry.target).destroy();
+          this.instances.delete(entry.target);
+        }
+      }
+    });
+  }
+
+  init() {
+    const carousels = document.querySelectorAll(".carousel");
+    carousels.forEach((carousel) => this.observer.observe(carousel));
+  }
+}
