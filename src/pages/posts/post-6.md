@@ -1,12 +1,13 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Sparky'
-pubDate: 2024-12-07
+title: 'Poetica Coffee'
+pubDate: 2025-01-22
 images:
-    path: '/assets/dog-park.webp'
-    alt: 'Sparky at Dog Park'
+    path: '/assets/poetica-coffee.webp'
+    alt: 'Poetica Coffee'
 settings:
     format: 'standard'
     color: 'black'
-tags: ["pic", "park", "autumn"]
+fav: true
+tags: ["pic","coffee","nyc"]
 ---

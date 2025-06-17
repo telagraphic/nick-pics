@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true })).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
+);
+
+const pageTitle = "Gallery";
+const classNames = "gallery";
+---
+
+<BaseLayout pageTitle={pageTitle} classNames={classNames}>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <section class="gallery__grid">
+        {
+          allPosts.map((post: any) => (
+            <a href={`${post.url}`} class="gallery__grid-item">
+              {/* <div
+                class="gallery__grid-item-image"
+                style={{ backgroundImage: `url(${post.frontmatter.images.path})` }}
+              /> */}
+              <img
+                class="gallery__grid-item-image"
+                src={post.frontmatter.images.path}
+                alt={post.frontmatter.images.alt}
+              />
+            </a>
+          ))
+        }
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<script src="../scripts/Gallery.js" type="module"></script>
