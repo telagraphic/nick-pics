@@ -22,13 +22,13 @@ const classNames = "gallery";
                   (Array.isArray(post.frontmatter.images)
                     ? post.frontmatter.images[0]
                     : post.frontmatter.images
-                  ).path
+                  )?.path || post.frontmatter.video?.thumbnail
                 }
                 alt={
                   (Array.isArray(post.frontmatter.images)
                     ? post.frontmatter.images[0]
                     : post.frontmatter.images
-                  ).alt
+                  )?.alt || post.frontmatter.video?.alt
                 }
               />
             </a>

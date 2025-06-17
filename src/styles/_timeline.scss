@@ -14,7 +14,7 @@
   }
 
   .timeline-section {
-    height: 100dvh;
+    min-height: 100dvh;
     width: 100dvw;
     scroll-snap-align: center;
     scroll-snap-stop: always;
@@ -52,6 +52,15 @@
       grid-template-rows: max-content 70vh max-content;
     }
 
+    &:has(.post__media-video) {
+      grid-template-rows: max-content max-content;
+
+      .post__title {
+        margin-block-start: 12dvh;
+        margin-block-end: 0;
+      }
+    }
+
     &__title {
       grid-area: title;
       white-space: nowrap;
@@ -87,7 +96,13 @@
       width: 100%;
       object-fit: cover;
       object-position: center center;
-      // padding-block: 0.5rem;
+    }
+
+    &__media-video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
     }
 
     &__footer {

@@ -1,4 +1,5 @@
-import Plyr from "plyr";
+// import Plyr from "plyr";
+import "https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.js";
 
 // Check if device is iOS or mobile
 const isiOS = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent);

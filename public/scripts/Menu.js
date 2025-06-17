@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set initial states
   gsap.set(menu, { opacity: 0 });
-  gsap.set(menuItems, { opacity: 0 });
+  // gsap.set(menuItems, { opacity: 0 });
   gsap.set(menuButton, { backgroundColor: "black" });
 
   function clickEvent() {
@@ -137,6 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (e) => {
       if (e.key === "m") {
         toggleMenu();
+      }
+
+      if (e.key === "Escape") {
+        menu.classList.remove("menu--open");
+        animateMenu(false);
+        animateButton(true);
       }
     });
   }
