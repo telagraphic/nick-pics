@@ -65,6 +65,7 @@
       margin-inline-start: var(--text-margin);
       font-weight: var(--font-weight);
       font-style: normal;
+      margin-block: 0;
 
       @container timeline-post (min-width: 768px) {
         margin-inline-start: 0;
