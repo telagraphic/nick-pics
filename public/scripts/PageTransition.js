@@ -62,6 +62,7 @@ class PageTransition {
         if (page && page !== window.location.pathname) {
           this.fadeOutLinks().then(() => {
             window.location.href = page;
+            console.log("page navigation");
           });
         }
       });
