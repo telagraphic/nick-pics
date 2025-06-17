@@ -16,14 +16,20 @@ const classNames = "gallery";
         {
           allPosts.map((post: any) => (
             <a href={`${post.url}`} class="gallery__grid-item">
-              {/* <div
-                class="gallery__grid-item-image"
-                style={{ backgroundImage: `url(${post.frontmatter.images.path})` }}
-              /> */}
               <img
                 class="gallery__grid-item-image"
-                src={post.frontmatter.images.path}
-                alt={post.frontmatter.images.alt}
+                src={
+                  (Array.isArray(post.frontmatter.images)
+                    ? post.frontmatter.images[0]
+                    : post.frontmatter.images
+                  ).path
+                }
+                alt={
+                  (Array.isArray(post.frontmatter.images)
+                    ? post.frontmatter.images[0]
+                    : post.frontmatter.images
+                  ).alt
+                }
               />
             </a>
           ))
