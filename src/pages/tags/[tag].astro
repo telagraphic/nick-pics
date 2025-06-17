@@ -19,7 +19,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
+<BaseLayout pageTitle={tag} classNames="timeline">
   {
     posts.map((post: any) => (
       <section class="timeline-section">
