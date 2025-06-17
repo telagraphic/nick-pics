@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
-.carousel-container {
+.carousel {
   width: 100dvw;
   min-height: 100dvh;
   display: flex;
@@ -8,115 +6,167 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  ::-webkit-scrollbar {
+    height: 13px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-top: 6px solid #000;
+    background: #555;
+    width: 50%;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+  }
+
+  &__wrapper {
+    width: 100dvw;
+    height: 100dvh;
+    // gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    scroll-snap-align: center;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__slide--active {
+    z-index: 1000;
+  }
+
+  &__slide img {
+    position: absolute;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__slide h2 {
+    position: relative;
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  &__slide h5 {
+    position: relative;
+    margin: 2% 0 0 0;
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 0.3px;
+  }
+
+  &__nav {
+    display: none; /* displayed in the JS */
+    position: absolute;
+    width: 100%;
+  }
+
+  &__nav button {
+    cursor: pointer;
+    border: none;
+    font-size: 3rem;
+    position: absolute;
+    aspect-ratio: 1.5;
+    width: 7vw;
+    max-width: 75px;
+    height: auto;
+    max-height: 3.7vh;
+    background-color: transparent;
+    background-size: cover;
+    overflow: visible;
+    background-image: url("data:image/svg+xml,%3Csvg stroke='%23fff' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 1 22 15'%3E%3Cpath d='M2,11 11,2 20,11'/%3E%3C/svg%3E");
+  }
+
+  &__nav .prev {
+    transform: translateY(-50%) rotate(-90deg);
+  }
+
+  &__nav .next {
+    transform: translateY(-50%) rotate(90deg);
+    right: 0;
+  }
+
+  &__nav div {
+    position: absolute;
+    top: 36vh;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-weight: 200;
+    opacity: 0.5;
+    letter-spacing: 0.25rem;
+    font-size: clamp(22px, 3.9vw, 44px);
+  }
 }
 
-.carousel {
-  width: 100dvw;
-  height: 100dvh;
-  // gap: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  -webkit-overflow-scrolling: touch;
-}
+// .carousel-slide {
+// }
 
-.carousel-slide {
-  position: relative;
-  flex: 0 0 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  scroll-snap-align: center;
-  overflow: hidden;
-  width: 100%;
-}
+// .carousel-slide .active {
+//   z-index: 1000;
+// }
 
-.carousel-slide .active {
-  z-index: 1000;
-}
+// .carousel-slide img {
+//   position: absolute;
+//   left: 0;
+//   width: 150%;
+//   height: 100%;
+//   object-fit: cover;
+// }
 
-.carousel-slide img {
-  position: absolute;
-  left: 0;
-  width: 150%;
-  height: 100%;
-  object-fit: cover;
-}
+// h2 {
+//   position: relative;
+//   margin: 0;
+//   font-size: 1.8rem;
+// }
 
-h2 {
-  position: relative;
-  margin: 0;
-  font-size: 1.8rem;
-}
+// h5 {
+//   position: relative;
+//   margin: 2% 0 0 0;
+//   font-size: 1rem;
+//   font-weight: 100;
+//   letter-spacing: 0.3px;
+// }
 
-h5 {
-  position: relative;
-  margin: 2% 0 0 0;
-  font-size: 1rem;
-  font-weight: 100;
-  letter-spacing: 0.3px;
-}
+// .carousel-nav {
+//   display: none; /* displayed in the JS */
+//   position: absolute;
+//   width: 100%;
+// }
 
-.carousel-nav {
-  display: none; /* displayed in the JS */
-  position: absolute;
-  width: 100%;
-}
-
-.carousel-nav button {
-  cursor: pointer;
-  border: none;
-  font-size: 3rem;
-  position: absolute;
-  aspect-ratio: 1.5;
-  width: 7vw;
-  max-width: 75px;
-  height: auto;
-  max-height: 3.7vh;
-  background-color: transparent;
-  background-size: cover;
-  overflow: visible;
-  background-image: url("data:image/svg+xml,%3Csvg stroke='%23fff' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 1 22 15'%3E%3Cpath d='M2,11 11,2 20,11'/%3E%3C/svg%3E");
-}
-
-.prev {
-  transform: translateY(-50%) rotate(-90deg);
-}
-
-.next {
-  transform: translateY(-50%) rotate(90deg);
-  right: 0;
-}
-
-.carousel-nav div {
-  position: absolute;
-  top: 36vh;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-weight: 200;
-  opacity: 0.5;
-  letter-spacing: 0.25rem;
-  font-size: clamp(22px, 3.9vw, 44px);
-}
+// .carousel-nav button {
+//   cursor: pointer;
+//   border: none;
+//   font-size: 3rem;
+//   position: absolute;
+//   aspect-ratio: 1.5;
+//   width: 7vw;
+//   max-width: 75px;
+//   height: auto;
+//   max-height: 3.7vh;
+//   background-color: transparent;
+//   background-size: cover;
+//   overflow: visible;
+//   background-image: url("data:image/svg+xml,%3Csvg stroke='%23fff' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 1 22 15'%3E%3Cpath d='M2,11 11,2 20,11'/%3E%3C/svg%3E");
+// }
 
 /* Simplify the scroll bar appearance */
-::-webkit-scrollbar {
-  height: 13px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-top: 6px solid #000;
-  background: #555;
-  width: 50%;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #bbb;
-}
