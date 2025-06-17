@@ -21,11 +21,10 @@ class Gallery {
    * Initialize layout and scroll effects
    */
   init() {
-    this.clearGrid(); // Safely clear grid content
-    this.groupItemsByColumn(); // Group items and get column count
-    // this.currentColumnCount = numColumns; // Store for layout change detection
-    this.buildGrid(); // Build new layout
-    this.applyLagEffects(); // Apply scroll effects
+    this.clearGrid();
+    this.groupItemsByColumn();
+    this.buildGrid();
+    this.applyLagEffects();
   }
 
   setupScrollSmoother() {
@@ -43,7 +42,7 @@ class Gallery {
    */
   applyLagEffects() {
     this.columnContainers.forEach(({ element, lag }) => {
-      this.smoother.effects(element, { speed: 1, lag }); // Apply per-column lag
+      this.smoother.effects(element, { speed: 1, lag });
     });
   }
 
@@ -56,9 +55,8 @@ class Gallery {
     const columnsRaw = gridStyles.getPropertyValue("grid-template-columns");
     const numColumns = columnsRaw.split(" ").filter(Boolean).length;
 
-    const columns = Array.from({ length: numColumns }, () => []); // Initialize column arrays
+    const columns = Array.from({ length: numColumns }, () => []);
 
-    // Distribute grid items into column buckets
     this.grid.querySelectorAll(".gallery__grid-item").forEach((item, index) => {
       columns[index % numColumns].push(item);
     });
@@ -75,31 +73,27 @@ class Gallery {
    * @returns {Array} Array of objects containing column elements and lag values
    */
   buildGrid() {
-    const fragment = document.createDocumentFragment(); // Efficient DOM batch insertion
-    const mid = (this.numColumns - 1) / 2; // Center index (can be fractional)
+    const fragment = document.createDocumentFragment();
+    const mid = (this.numColumns - 1) / 2;
     const maxDistance =
       this.numColumns % 2 === 1 ? Math.floor(this.numColumns / 2) : this.numColumns / 2;
 
     this.columnContainers = [];
 
-    // Loop over each column
     this.columns.forEach((column, i) => {
-      const distance = Math.abs(i - mid); // Distance from center
-      const lag = this.baseLag + (maxDistance - distance + 1) * this.lagFactor; // Lag increases toward center
+      const distance = Math.abs(i - mid);
+      const lag = this.baseLag + (maxDistance - distance + 1) * this.lagFactor;
 
-      const columnContainer = document.createElement("div"); // New column wrapper
+      const columnContainer = document.createElement("div");
       columnContainer.className = "gallery__grid-column";
 
-      // Append items to column container
       column.forEach((item) => columnContainer.appendChild(item));
 
-      fragment.appendChild(columnContainer); // Add to fragment
-      this.columnContainers.push({ element: columnContainer, lag }); // Store for ScrollSmoother
+      fragment.appendChild(columnContainer);
+      this.columnContainers.push({ element: columnContainer, lag });
     });
 
-    this.grid.appendChild(fragment); // Insert all at once
-    // this.columnContainers = this.columnContainers;
-    // return columnContainers;
+    this.grid.appendChild(fragment);
   }
 
   /**
