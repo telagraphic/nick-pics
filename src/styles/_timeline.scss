@@ -53,9 +53,11 @@
     }
 
     &:has(.post__media-video) {
-      grid-template-rows: max-content max-content;
+      grid-template-rows: auto;
 
       .post__title {
+        display: flex;
+        align-items: flex-end;
         margin-block-end: 0;
       }
     }
@@ -177,6 +179,15 @@
         .post__media-image {
           padding-block: 0;
           object-position: center center;
+        }
+
+        .post__media-swiper {
+          padding-block: 0;
+          object-position: center center;
+        }
+
+        .swiper-slide {
+          height: 100dvh !important;
         }
 
         .post__footer {

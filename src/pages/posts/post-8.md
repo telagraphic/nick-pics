@@ -1,13 +1,14 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Poetica Coffee'
-pubDate: 2025-01-22
-images:
-    path: '/assets/poetica-coffee.webp'
-    alt: 'Poetica Coffee'
+title: 'Metal Show'
+pubDate: 2025-05-25
+video:
+    path: '/assets/'
+    name: 'portrait-video'
+    alt: 'Metal Show'
+    thumbnail: '/assets/portrait-video.png' 
 settings:
-    format: 'standard'
+    format: 'full'
     color: 'black'
-fav: true
-tags: ["pic","coffee","nyc"]
+tags: ["music"]
 ---

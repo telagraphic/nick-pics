@@ -1,20 +1,29 @@
 ---
-import Carousel from "./Carousel.astro";
+import { STORAGE_URL } from "../config/constants";
 const { images } = Astro.props;
 ---
 
 {
   Array.isArray(images) ? (
-    // <Carousel images={images} />
     <section class="post__media-swiper swiper">
       <div class="swiper-wrapper">
         {images.map((image) => (
-          <img class="post__media swiper-slide" src={image.path} alt={image.alt} loading="lazy" />
+          <img
+            class="post__media swiper-slide"
+            src={`${STORAGE_URL}${image.path}`}
+            alt={`${STORAGE_URL}${image.alt}`}
+            loading="lazy"
+          />
         ))}
       </div>
       <div class="swiper-pagination" />
     </section>
   ) : (
-    <img class="post__media-image" src={images.path} alt={images.alt} loading="lazy" />
+    <img
+      class="post__media-image"
+      src={`${STORAGE_URL}${images.path}`}
+      alt={`${STORAGE_URL}${images.alt}`}
+      loading="lazy"
+    />
   )
 }

@@ -1,4 +1,5 @@
 ---
+import { STORAGE_URL } from "../config/constants";
 const { video } = Astro.props;
 ---
 
@@ -9,11 +10,11 @@ const { video } = Astro.props;
     autoplay
     preload="auto"
     data-plyr-provider="html5"
-    data-poster={`${video.path}/${video.name}.png`}
+    data-poster={`${STORAGE_URL}/${video.name}.png`}
     style="width: 100%; height: 100%; object-fit: cover;"
   >
-    <source src={`${video.path}/${video.name}.webm`} type="video/webm" class="desktop-source" />
-    <source src={`${video.path}/${video.name}.mp4`} type="video/mp4" class="mobile-source" />
+    <source src={`${STORAGE_URL}/${video.name}.webm`} type="video/webm" class="desktop-source" />
+    <source src={`${STORAGE_URL}/${video.name}.mp4`} type="video/mp4" class="mobile-source" />
     Your browser does not support the video tag. Path: {video.path}
   </video>
 </div>
