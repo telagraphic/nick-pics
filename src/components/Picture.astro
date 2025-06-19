@@ -1,6 +1,6 @@
 ---
+import { STORAGE_URL } from "../config/constants";
 const { images } = Astro.props;
-const storage = "https://nick-pics.b-cdn.net/";
 ---
 
 {
@@ -10,8 +10,8 @@ const storage = "https://nick-pics.b-cdn.net/";
         {images.map((image) => (
           <img
             class="post__media swiper-slide"
-            src={`${storage}${image.path}`}
-            alt={`${storage}${image.alt}`}
+            src={`${STORAGE_URL}${image.path}`}
+            alt={`${STORAGE_URL}${image.alt}`}
             loading="lazy"
           />
         ))}
@@ -21,8 +21,8 @@ const storage = "https://nick-pics.b-cdn.net/";
   ) : (
     <img
       class="post__media-image"
-      src={`${storage}${images.path}`}
-      alt={`${storage}${images.alt}`}
+      src={`${STORAGE_URL}${images.path}`}
+      alt={`${STORAGE_URL}${images.alt}`}
       loading="lazy"
     />
   )
