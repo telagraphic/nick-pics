@@ -1,20 +1,29 @@
 ---
-import Carousel from "./Carousel.astro";
 const { images } = Astro.props;
+const storage = "https://nick-pics.b-cdn.net/";
 ---
 
 {
   Array.isArray(images) ? (
-    // <Carousel images={images} />
     <section class="post__media-swiper swiper">
       <div class="swiper-wrapper">
         {images.map((image) => (
-          <img class="post__media swiper-slide" src={image.path} alt={image.alt} loading="lazy" />
+          <img
+            class="post__media swiper-slide"
+            src={`${storage}${image.path}`}
+            alt={`${storage}${image.alt}`}
+            loading="lazy"
+          />
         ))}
       </div>
       <div class="swiper-pagination" />
     </section>
   ) : (
-    <img class="post__media-image" src={images.path} alt={images.alt} loading="lazy" />
+    <img
+      class="post__media-image"
+      src={`${storage}${images.path}`}
+      alt={`${storage}${images.alt}`}
+      loading="lazy"
+    />
   )
 }
