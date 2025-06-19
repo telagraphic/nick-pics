@@ -145,7 +145,9 @@ class PageTransition {
           // Menu navigation: show menu and fade out
           this.menu.style.opacity = 1;
           this.main.style.opacity = 1;
-          this.fadeOutMenu();
+          requestAnimationFrame(() => {
+            this.fadeOutMenu();
+          });
         } else if (navigationType === "main") {
           // Main navigation: keep menu hidden, fade in main
           this.menu.style.opacity = 0;
@@ -158,7 +160,10 @@ class PageTransition {
           // Direct page load (refresh, bookmark, etc.): show menu and fade out
           this.menu.style.opacity = 1;
           this.main.style.opacity = 1;
-          this.fadeOutMenu();
+          requestAnimationFrame(() => {
+            this.fadeOutMenu();
+          });
+          
         }
       }
     }
