@@ -7,6 +7,18 @@ const { pageTitle, classNames } = Astro.props;
 
 <html lang="en">
   <Head pageTitle={pageTitle} />
+  <script is:inline>
+    // Prevent menu flash by setting initial state immediately
+    (function () {
+      const navigationType = sessionStorage.getItem("navigationType");
+      if (navigationType === "main") {
+        // Add a style tag to hide menu immediately
+        const style = document.createElement("style");
+        style.textContent = ".menu { opacity: 0 !important; }";
+        document.head.appendChild(style);
+      }
+    })();
+  </script>
   <body>
     <Menu />
     <main class={classNames}>
