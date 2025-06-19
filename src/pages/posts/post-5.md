@@ -1,16 +1,16 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: 'Prospect Park 2023'
-pubDate: 2025-2-20
+pubDate: 2024-2-20
 images:
-    - path: '/assets/couple-sunset.webp'
+    - path: 'couple-sunset.webp'
       alt: 'Couple at sunset'
-    - path: '/assets/couple-sunset.webp'
+    - path: 'couple-sunset.webp'
       alt: 'Couple at sunset'
-    - path: '/assets/poetica-coffee.webp'
+    - path: 'poetica-coffee.webp'
       alt: 'Poetica Coffee'
 settings:
-    format: 'full'
+    format: 'standard'
     color: 'white'
 tags: ["pic"]
 ---

@@ -3,7 +3,7 @@ layout: ../../layouts/PostLayout.astro
 title: 'Poetica Coffee'
 pubDate: 2025-01-22
 images:
-    path: '/assets/poetica-coffee.webp'
+    path: 'poetica-coffee.webp'
     alt: 'Poetica Coffee'
 settings:
     format: 'standard'
