@@ -17,9 +17,10 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+const title = tag.charAt(0).toUpperCase() + tag.slice(1);
 ---
 
-<BaseLayout pageTitle={tag} classNames="timeline">
+<BaseLayout pageTitle={`${title} Posts`} classNames="timeline">
   {
     posts.map((post: any) => (
       <section class="timeline-section">

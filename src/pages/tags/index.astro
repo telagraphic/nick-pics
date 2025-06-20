@@ -5,7 +5,7 @@ const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat
 const pageTitle = "Tags";
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <section class="tags">
     {
       (

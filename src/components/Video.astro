@@ -7,7 +7,6 @@ const { video } = Astro.props;
   <video
     class="plyr-video"
     playsinline
-    autoplay
     preload="auto"
     data-plyr-provider="html5"
     data-poster={`${STORAGE_URL}/${video.name}.png`}
