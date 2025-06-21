@@ -22,17 +22,18 @@ const { pageTitle, classNames } = Astro.props;
     <main class={classNames}>
       <slot />
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script is:inline src="/scripts/gsap.min.js"></script>
     <script is:inline src="/scripts/SplitText.min.js"></script>
     <script is:inline src="/scripts/ScrollTrigger.min.js"></script>
     <script is:inline src="/scripts/ScrollSmoother.min.js"></script>
     <script is:inline src="/scripts/Draggable.min.js"></script>
     <script is:inline src="/scripts/InertiaPlugin.min.js"></script>
+    <script type="module" src="../scripts/Swiper.js"></script>
     <script type="module" src="../scripts/ScrollIntoView.js"></script>
     <script type="module" src="../scripts/Post.js"></script>
     <script type="module" src="../scripts/Video.js"></script>
-    <script type="module" src="../scripts/Swiper.js"></script>
+    <!-- <script type="module" src="../scripts/Swiper.js"></script> -->
     <script type="module" src="../scripts/Menu.js"></script>
     <script type="module" src="../scripts/PageTransition.js"></script>
   </body>

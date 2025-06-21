@@ -5,8 +5,6 @@ pubDate: 2025-07-20
 images:
     - path: 'couple-sunset.webp'
       alt: 'Couple at sunset'
-    - path: 'couple-sunset.webp'
-      alt: 'Couple at sunset'
     - path: 'poetica-coffee.webp'
       alt: 'Poetica Coffee'
 settings:

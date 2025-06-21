@@ -10,7 +10,7 @@ images:
     - path: 'poetica-coffee.webp'
       alt: 'Poetica Coffee'
 settings:
-    format: 'standard'
+    format: 'full'
     color: 'white'
 tags: ["pic"]
 ---
