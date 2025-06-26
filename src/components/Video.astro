@@ -4,14 +4,7 @@ const { video } = Astro.props;
 ---
 
 <div class="post__media-video plyr-container">
-  <video
-    class="plyr-video"
-    playsinline
-    preload="auto"
-    data-plyr-provider="html5"
-    data-poster={`${STORAGE_URL}/${video.name}.png`}
-    style="width: 100%; height: 100%; object-fit: cover;"
-  >
+  <video class="plyr-video" playsinline preload="auto" data-plyr-provider="html5">
     <source src={`${STORAGE_URL}/${video.name}.webm`} type="video/webm" class="desktop-source" />
     <source src={`${STORAGE_URL}/${video.name}.mp4`} type="video/mp4" class="mobile-source" />
     Your browser does not support the video tag. Path: {video.path}

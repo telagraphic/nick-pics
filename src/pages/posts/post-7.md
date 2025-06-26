@@ -1,14 +1,16 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 'Prospect Park 2023'
-pubDate: 2025-07-20
+title: 'Le Industrie Zaaaa!'
+pubDate: 2023-03-24
 images:
-    - path: 'couple-sunset.webp'
-      alt: 'Couple at sunset'
-    - path: 'poetica-coffee.webp'
-      alt: 'Poetica Coffee'
+    - path: '2023-pizza-pics-3.webp'
+      alt: 'Williamsburg Best Pizza'
+    - path: '2023-pizza-pics-1.webp'
+      alt: 'Le Industrie Pizza'
+    - path: '2023-pizza-pics-2.webp'
+      alt: 'Le Industrie Pizza'
 settings:
-    format: 'standard'
+    format: 'full'
     color: 'white'
-tags: ["pic"]
+tags: ["food", "pizza"]
 ---
