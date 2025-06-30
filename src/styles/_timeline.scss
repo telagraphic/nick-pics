@@ -62,6 +62,24 @@
       }
     }
 
+    &--white {
+      @media (max-width: 500px) {
+        .post__title-header {
+          color: #ffffff;
+        }
+
+        .post__tags {
+          a {
+            color: #ffffff;
+          }
+        }
+
+        .post__date {
+          color: #ffffff;
+        }
+      }
+    }
+
     &__title {
       grid-area: title;
       white-space: nowrap;

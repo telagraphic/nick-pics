@@ -9,6 +9,8 @@ images:
       alt: 'Le Industrie Pizza'
     - path: '2023-pizza-pics-2.webp'
       alt: 'Le Industrie Pizza'
+    - path: '2023-pizza-pics-4.webp'
+      alt: 'Angelos Pizza'
 settings:
     format: 'full'
     color: 'white'

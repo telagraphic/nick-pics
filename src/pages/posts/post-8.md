@@ -13,6 +13,5 @@ images:
       alt: 'Homemade Burgers'
 settings:
     format: 'standard'
-    color: 'white'
 tags: ["food", "burgers"]
 ---

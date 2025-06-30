@@ -52,8 +52,9 @@
 
 .post--full {
   .swiper-pagination {
+    bottom: 11rem !important;
     @media (max-width: 500px) {
-      bottom: 5rem !important;
+      bottom: 4.5rem !important;
     }
   }
 

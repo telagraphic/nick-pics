@@ -11,6 +11,5 @@ images:
       alt: 'Homemade Sundae'
 settings:
     format: 'standard'
-    color: 'white'
 tags: ["food"]
 ---

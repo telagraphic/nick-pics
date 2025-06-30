@@ -11,6 +11,5 @@ images:
       alt: 'Koji Pickled Eggs'
 settings:
     format: 'standard'
-    color: 'white'
 tags: ["food"]
 ---
